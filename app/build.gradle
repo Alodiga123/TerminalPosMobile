@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 22
-    buildToolsVersion "23.0.0"
+    buildToolsVersion '25.0.0'
 
     defaultConfig {
         applicationId "com.bbpos.bbdevice.example"
@@ -22,4 +22,5 @@ dependencies {
     compile 'com.android.support:support-v4:22.2.1'
     compile files('libs/bbdevice-android-3.2.0.jar')
     compile files('libs/ksoap2-android-assembly-2.4-jar-with-dependencies.jar')
+    compile files('libs/EncryptionAlodigaSecurity.jar')
 }

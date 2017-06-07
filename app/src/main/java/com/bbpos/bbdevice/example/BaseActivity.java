@@ -17,6 +17,7 @@ import javax.crypto.Cipher;
 import javax.crypto.SecretKey;
 import javax.crypto.spec.SecretKeySpec;
 
+import com.alodiga.security.encryption.S3cur1ty3Cryt3r;
 import com.bbpos.bbdevice.BBDeviceController.AccountSelectionResult;
 import com.bbpos.bbdevice.BBDeviceController.AudioAutoConfigError;
 import com.bbpos.bbdevice.BBDeviceController.ContactlessStatus;
@@ -59,6 +60,8 @@ import android.bluetooth.BluetoothDevice;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -83,6 +86,13 @@ import android.os.Environment;
 import android.os.Handler;
 import android.os.Looper;
 import android.util.Log;
+
+import org.ksoap2.SoapEnvelope;
+import org.ksoap2.serialization.PropertyInfo;
+import org.ksoap2.serialization.SoapObject;
+import org.ksoap2.serialization.SoapPrimitive;
+import org.ksoap2.serialization.SoapSerializationEnvelope;
+import org.ksoap2.transport.HttpTransportSE;
 
 public class BaseActivity extends Activity {
 
@@ -115,11 +125,12 @@ public class BaseActivity extends Activity {
 
 	protected static String fid65WorkingKey = "A1223344556677889900AABBCCDDEEFF";
 	protected static String fid65MasterKey = "0123456789ABCDEFFEDCBA9876543210";
+	protected static String token1;
 
 	protected static Spinner fidSpinner;
 	protected static Button startButton;
-	protected static EditText amountEditText;
-	protected static EditText statusEditText;
+	protected static TextView amountEditText;
+	protected static TextView statusEditText;
 	protected static ListView appListView;
 	protected static Dialog dialog;
 	protected static ProgressDialog progressDialog;
@@ -134,6 +145,10 @@ public class BaseActivity extends Activity {
 	protected static Button updateCAPKButton;
 	protected static Button getEmvReportListButton;
 	protected static Button getEmvReportButton;
+	protected static String email;
+	protected static String cid;
+	protected static String accountType;
+	protected static String transactionTypeString;
 	
 	protected static Button updateGprsSettingButton;
 	protected static Button updateWifiSettingButton;
@@ -218,6 +233,8 @@ public class BaseActivity extends Activity {
 			bbDeviceController = BBDeviceController.getInstance(getApplicationContext(), listener);
 			BBDeviceController.setDebugLogEnabled(true);
 			bbDeviceController.setDetectAudioDevicePlugged(true);
+			Intent intent = getIntent();
+			token1 = intent.getStringExtra("token");
 		}
 	}
 	
@@ -432,9 +449,107 @@ public class BaseActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				dismissDialog();
+                stopConnection();
 			}
 		});
 
+		dialog.show();
+	}
+	public void promptForEmail() throws Exception {
+		dismissDialog();
+		dialog = new Dialog(currentActivity);
+		dialog.setContentView(R.layout.data_dialog);
+		dialog.setTitle(getString(R.string.Id_email));
+		dialog.setCanceledOnTouchOutside(false);
+		EditText checkEmail = (EditText) dialog.findViewById(R.id.Cid);
+/*		final String NAMESPACE = "http://services.ws.acquiring.alodiga.com/";
+		final String METHOD_NAME = "getMailByDocumentno";
+		final String URL = "http://ec2-35-167-158-127.us-west-2.compute.amazonaws.com:8080/UtilmailsWS/UtilEmailsWS";
+		final String SOAP_ACTION ="";*/
+		Utils utils = new Utils();
+		final String key = utils.getkey(getApplicationContext());
+		final String deviceId = android.provider.Settings.Secure.getString(getApplicationContext().getContentResolver(),
+				android.provider.Settings.Secure.ANDROID_ID);
+
+		checkEmail.addTextChangedListener(new TextWatcher() {
+			@Override public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+			@Override public void onTextChanged(CharSequence s, int start, int before, int count) { }
+			@Override public void afterTextChanged(Editable s) {
+				if(s.length()>=8){
+					cid=((EditText) dialog.findViewById(R.id.Cid)).getText().toString();
+
+					new Thread(new Runnable() {
+						@Override
+						public void run() {
+							try
+							{
+
+								try {
+									final String  deEvice = Utils.sha256(deviceId);
+									final String number1 = S3cur1ty3Cryt3r.aloEncrypter((cid),key,null);
+									final String response = WebService.invokeGetAutoConfigString(number1,deEvice,"getMailByDocumentno","http://ec2-35-167-158-127.us-west-2.compute.amazonaws.com:8080/UtilmailsWS/UtilEmailsWS");
+
+
+
+									runOnUiThread(new Runnable() {
+										public void run() {
+											String[] auth = response.split(",");
+
+											if (Integer.valueOf(auth[0].toString().trim()).equals(0)) {
+												email = auth[2].toString();
+												((EditText) dialog.findViewById(R.id.Email)).setText(email, TextView.BufferType.EDITABLE);
+
+											}
+										}
+									});
+
+
+
+									//	String response = S3cur1ty3Cryt3r.aloDesencrypter(value, key, null);
+
+								}catch (Exception e){
+
+									e.printStackTrace();
+									e.getMessage();
+								}
+
+
+
+							}
+
+
+
+							catch (Exception e) {
+
+								e.printStackTrace();
+								e.getMessage();
+							}
+						}}).start();
+				}
+			}
+		});
+
+		dialog.findViewById(R.id.setEmailButton).setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				email = ((EditText) dialog.findViewById(R.id.Email)).getText().toString();
+				cid= ((EditText) dialog.findViewById(R.id.Cid)).getText().toString();
+				if((email.equals("")||cid.equals(""))){
+					Toast.makeText(getApplicationContext(), getString(R.string.Field_empty), Toast.LENGTH_SHORT).show();
+					return;
+				}
+				promptForStartEmv();
+				dismissDialog();
+			}
+		});
+		dialog.findViewById(R.id.cancelButton).setOnClickListener(new OnClickListener(){
+			@Override
+			public void onClick(View v){
+				dismissDialog();
+				statusEditText.setText("");
+				stopConnection();
+			}
+		});
 		dialog.show();
 	}
 
@@ -444,24 +559,30 @@ public class BaseActivity extends Activity {
 		dialog.setContentView(R.layout.amount_dialog);
 		dialog.setTitle(getString(R.string.set_amount));
 		dialog.setCanceledOnTouchOutside(false);
+		String[] account = new String[]{getString(R.string.Checking),getString(R.string.Saving)};
+		Spinner accountTypeSpinner = (Spinner) dialog.findViewById(R.id.accountType);
+		accountTypeSpinner.setAdapter(new ArrayAdapter<String>(currentActivity, android.R.layout.simple_spinner_item, account));
 
-		String[] symbols = new String[] { "DOLLAR", "RUPEE", "YEN", "POUND", "EURO", "WON", "DIRHAM", "RIYAL", "AED", "BS.", "YUAN", "NEW_SHEKEL", "NULL" };
-		((Spinner) dialog.findViewById(R.id.symbolSpinner)).setAdapter(new ArrayAdapter<String>(currentActivity, android.R.layout.simple_spinner_item, symbols));
+		accountType = accountTypeSpinner.getSelectedItem().toString();
+		//String[] symbols = new String[] { "DOLLAR", "RUPEE", "YEN", "POUND", "EURO", "WON", "DIRHAM", "RIYAL", "AED", "BS.", "YUAN", "NEW_SHEKEL", "NULL" };
+		//((Spinner) dialog.findViewById(R.id.symbolSpinner)).setAdapter(new ArrayAdapter<String>(currentActivity, android.R.layout.simple_spinner_item, symbols));
 
-		String[] transactionTypes = new String[] { "GOODS", "SERVICES", "CASHBACK", "INQUIRY", "TRANSFER", "PAYMENT", "REFUND", "VOID", "REVERSAL" };
-		((Spinner) dialog.findViewById(R.id.transactionTypeSpinner)).setAdapter(new ArrayAdapter<String>(currentActivity, android.R.layout.simple_spinner_item, transactionTypes));
+		//String[] transactionTypes = new String[] { "GOODS", "SERVICES", "CASHBACK", "INQUIRY", "TRANSFER", "PAYMENT", "REFUND", "VOID", "REVERSAL" };
+		//((Spinner) dialog.findViewById(R.id.transactionTypeSpinner)).setAdapter(new ArrayAdapter<String>(currentActivity, android.R.layout.simple_spinner_item, transactionTypes));
 
 		dialog.findViewById(R.id.setButton).setOnClickListener(new View.OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
 				String amount = ((EditText) (dialog.findViewById(R.id.amountEditText))).getText().toString();
-				String cashbackAmount = ((EditText) (dialog.findViewById(R.id.cashbackAmountEditText))).getText().toString();
-				String transactionTypeString = (String) ((Spinner) dialog.findViewById(R.id.transactionTypeSpinner)).getSelectedItem();
-				String symbolString = (String) ((Spinner) dialog.findViewById(R.id.symbolSpinner)).getSelectedItem();
+				//String cashbackAmount = ((EditText) (dialog.findViewById(R.id.cashbackAmountEditText))).getText().toString();
+				//String transactionTypeString = (String) ((Spinner) dialog.findViewById(R.id.transactionTypeSpinner)).getSelectedItem();
+				//String symbolString = (String) ((Spinner) dialog.findViewById(R.id.symbolSpinner)).getSelectedItem();
+				String symbolString = "BS.";
+				transactionTypeString=getString(R.string.Goods);
 
 				TransactionType transactionType = TransactionType.GOODS;
-				if (transactionTypeString.equals("GOODS")) {
+				if (transactionTypeString.equals(getString(R.string.Goods))) {
 					transactionType = TransactionType.GOODS;
 				} else if (transactionTypeString.equals("SERVICES")) {
 					transactionType = TransactionType.SERVICES;
@@ -519,7 +640,7 @@ public class BaseActivity extends Activity {
 				}
 
 				if (bbDeviceController.setAmount(amount, cashbackAmount, currencyCode, transactionType, currencyCharacters)) {
-					amountEditText.setText("$" + amount);
+					amountEditText.setText("BS." + amount);
 					currentActivity.amount = amount;
 					currentActivity.cashbackAmount = cashbackAmount;
 					statusEditText.setText(getString(R.string.please_confirm_amount));
@@ -537,6 +658,7 @@ public class BaseActivity extends Activity {
 			public void onClick(View v) {
 				bbDeviceController.cancelSetAmount();
 				dialog.dismiss();
+				stopConnection();
 			}
 
 		});
@@ -600,6 +722,7 @@ public class BaseActivity extends Activity {
 			public void onClick(View v) {
 				dismissDialog();
 				statusEditText.setText("");
+                stopConnection();
 			}
 		});
 
@@ -608,7 +731,9 @@ public class BaseActivity extends Activity {
 	
 	public void promptForStartEmv() {
 		dismissDialog();
-		dialog = new Dialog(currentActivity);
+		checkCardMode=CheckCardMode.SWIPE_OR_INSERT;
+		startEmv();
+		/*dialog = new Dialog(currentActivity);
 		dialog.setContentView(R.layout.check_card_mode_dialog);
 		dialog.setTitle(getString(R.string.select_mode));
 		dialog.setCanceledOnTouchOutside(false);
@@ -662,7 +787,7 @@ public class BaseActivity extends Activity {
 			}
 		});
 
-		dialog.show();
+		dialog.show();*/
 	}
 	
 	public void promptForGprs() {
@@ -704,6 +829,7 @@ public class BaseActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				dialog.dismiss();
+                stopConnection();
 			}
 
 		});
@@ -761,6 +887,7 @@ public class BaseActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				dialog.dismiss();
+                stopConnection();
 			}
 
 		});
@@ -815,6 +942,7 @@ public class BaseActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				dialog.dismiss();
+                stopConnection();
 			}
 
 		});
@@ -880,6 +1008,7 @@ public class BaseActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				dialog.dismiss();
+                stopConnection();
 			}
 
 		});
@@ -940,6 +1069,7 @@ public class BaseActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				dialog.dismiss();
+                stopConnection();
 			}
 
 		});
@@ -1066,6 +1196,7 @@ public class BaseActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				dialog.dismiss();
+                stopConnection();
 			}
 
 		});
@@ -1187,6 +1318,7 @@ public class BaseActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				dialog.dismiss();
+                stopConnection();
 			}
 
 		});
@@ -1308,6 +1440,7 @@ public class BaseActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				dialog.dismiss();
+                stopConnection();
 			}
 
 		});
@@ -1362,6 +1495,7 @@ public class BaseActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				dialog.dismiss();
+                stopConnection();
 			}
 
 		});
@@ -1554,6 +1688,7 @@ public class BaseActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				dialog.dismiss();
+                stopConnection();
 			}
 
 		});
@@ -1707,6 +1842,7 @@ public class BaseActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				dialog.dismiss();
+                stopConnection();
 			}
 
 		});
@@ -2627,6 +2763,8 @@ public class BaseActivity extends Activity {
 					message += getString(R.string.cashback_amount) + ": $" + cashbackAmount;
 				}
 			}
+			else
+				message = "Transacción fallida";
 
 			messageTextView.setText(message);
 
@@ -2643,6 +2781,7 @@ public class BaseActivity extends Activity {
 			});
 
 			dialog.show();
+			stopConnection();
 		}
 
 		@Override
@@ -2942,6 +3081,7 @@ public class BaseActivity extends Activity {
 				public void onClick(View v) {
 					bbDeviceController.cancelSelectApplication();
 					dismissDialog();
+                    stopConnection();
 				}
 			});
 			dialog.show();
@@ -2993,6 +3133,7 @@ public class BaseActivity extends Activity {
 								isPinCanceled = true;
 								bbDeviceController.cancelPinEntry();
 								dismissDialog();
+                                stopConnection();
 							}
 						});
 
@@ -3000,44 +3141,211 @@ public class BaseActivity extends Activity {
 			}
 		}
 
-		@Override
+        @Override
 		public void onRequestOnlineProcess(String tlv) {
 			String content = getString(R.string.request_data_to_server) + "\n";
+
+			final String deviceId = android.provider.Settings.Secure.getString(getApplicationContext().getContentResolver(),
+					android.provider.Settings.Secure.ANDROID_ID);
+
 			Hashtable<String, String> decodeData = BBDeviceController.decodeTlv(tlv);
 			Object[] keys = decodeData.keySet().toArray();
+
+
+
+			String CountryId = "3";
+			String channelid = "3";
+			String transactionType = "1";
+			String pinBlock = "1505";
+			String serviceType = "1";
+			String accountType1="1";
+			String maskedpan = decodeData.get("maskedPAN");
+			String bin =maskedpan.substring(0,6);
+
+
+
+			final String transactionRequest = channelid+","+transactionType+","+pinBlock+","+amount+","+CountryId+","+serviceType+","+cid+","+accountType1+","+email+","+maskedpan+","+bin+","+token1;
+
+
+//            Toast.makeText( getApplicationContext(), "en este punto el obtiene el TLV",Toast.LENGTH_LONG).show();
+			new Thread(new Runnable() {
+				@Override
+				public void run() {
+					try
+					{
+
+						try {
+							Utils utils = new Utils();
+							String key=null;
+							try {
+								key = utils.getkey(getApplicationContext());
+							} catch (Exception e) {
+								e.printStackTrace();
+							}
+							//Namespace of the Webservice - can be found in WSDL
+							String NAMESPACE = "http://core.service.network.acquiring.com/";
+							//Webservice URL - WSDL File location
+							String URL = "http://ec2-35-167-158-127.us-west-2.compute.amazonaws.com:8080/WsCoreService/WsCore";
+							//SOAP Action URI again Namespace + Web method name
+							String SOAP_ACTION = "";
+							String METHOD_NAME = "excuteTransactionWS";
+
+							final String  deEvice = Utils.sha256(deviceId);
+							final String number1 = S3cur1ty3Cryt3r.aloEncrypter((transactionRequest),key,null);
+							SoapObject request = new SoapObject(NAMESPACE, METHOD_NAME);
+							PropertyInfo propInfo = new PropertyInfo();
+							propInfo.name = "arg0";
+							propInfo.type = PropertyInfo.STRING_CLASS;
+
+							PropertyInfo propInfo1 = new PropertyInfo();
+							propInfo1.name = "arg1";
+							propInfo1.type = PropertyInfo.STRING_CLASS;
+
+							request.addProperty(propInfo, number1);
+							request.addProperty(propInfo1, deEvice);
+
+
+							SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(SoapEnvelope.VER11);
+							envelope.setOutputSoapObject(request);
+							HttpTransportSE androidHttpTransport = new HttpTransportSE(URL.trim());
+							androidHttpTransport.call(SOAP_ACTION, envelope);
+							SoapPrimitive resultsRequestSOAP = (SoapPrimitive) envelope.getResponse();
+							final String value = resultsRequestSOAP.toString();
+							final String response = S3cur1ty3Cryt3r.aloDesencrypter(value,key,null);
+
+							runOnUiThread(new Runnable() {
+								public void run() {
+									String[] auth = response.split(",");
+									dismissDialog();
+									dialog = new Dialog(currentActivity);
+									dialog.setContentView(R.layout.alert_dialog);
+									dialog.setTitle(R.string.request_data_to_server);
+
+									if (Integer.valueOf(auth[0].toString().trim()).equals(0)) {
+										((TextView) dialog.findViewById(R.id.messageTextView)).setText(R.string.replied_success);
+									}if(Integer.valueOf(auth[0].toString().trim()).equals(1)){
+										((TextView) dialog.findViewById(R.id.messageTextView)).setText(R.string.auth_failed);
+									}
+									if(Integer.valueOf(auth[0].toString().trim()).equals(2)){
+										((TextView) dialog.findViewById(R.id.messageTextView)).setText(R.string.missing_parameters);
+									}
+									if(Integer.valueOf(auth[0].toString().trim()).equals(3)){
+										((TextView) dialog.findViewById(R.id.messageTextView)).setText(R.string.invalid_amount);
+									}
+									if(Integer.valueOf(auth[0].toString().trim()).equals(4)){
+										((TextView) dialog.findViewById(R.id.messageTextView)).setText(R.string.invalid_password);
+									}
+									if(Integer.valueOf(auth[0].toString().trim()).equals(5)){
+										((TextView) dialog.findViewById(R.id.messageTextView)).setText(R.string.invalid_credit_card);
+									}
+									if(Integer.valueOf(auth[0].toString().trim()).equals(6)){
+										((TextView) dialog.findViewById(R.id.messageTextView)).setText(R.string.records_not_found);
+									}
+									if(Integer.valueOf(auth[0].toString().trim()).equals(7)){
+										((TextView) dialog.findViewById(R.id.messageTextView)).setText(R.string.insufficient_funds);
+									}
+									if(Integer.valueOf(auth[0].toString().trim()).equals(8)){
+										((TextView) dialog.findViewById(R.id.messageTextView)).setText(R.string.service_not_available);
+									}
+									if(Integer.valueOf(auth[0].toString().trim()).equals(9)){
+										((TextView) dialog.findViewById(R.id.messageTextView)).setText(R.string.payment_declined);
+									}
+									if(Integer.valueOf(auth[0].toString().trim()).equals(10)){
+										((TextView) dialog.findViewById(R.id.messageTextView)).setText(R.string.token_not_found);
+									}
+									if(Integer.valueOf(auth[0].toString().trim()).equals(11)){
+										((TextView) dialog.findViewById(R.id.messageTextView)).setText(R.string.invalid_transaction);
+									}
+									if(Integer.valueOf(auth[0].toString().trim()).equals(12)){
+										((TextView) dialog.findViewById(R.id.messageTextView)).setText(R.string.transaction_declined);
+									}
+									if(Integer.valueOf(auth[0].toString().trim()).equals(13)){
+										((TextView) dialog.findViewById(R.id.messageTextView)).setText(R.string.terminal_failure);
+									}
+									if(Integer.valueOf(auth[0].toString().trim()).equals(14)){
+										((TextView) dialog.findViewById(R.id.messageTextView)).setText(R.string.invalid_card);
+									}
+									if(Integer.valueOf(auth[0].toString().trim()).equals(999)){
+										((TextView) dialog.findViewById(R.id.messageTextView)).setText(R.string.general_error);
+									}
+
+									dialog.findViewById(R.id.confirmButton).setOnClickListener(
+											new OnClickListener() {
+
+												@Override
+												public void onClick(View v) {
+													if (isPinCanceled) {
+														bbDeviceController.sendOnlineProcessResult(null);
+													} else {
+														bbDeviceController.sendOnlineProcessResult("8A023030");
+													}
+													dismissDialog();
+												}
+											});
+
+									dialog.show();
+								}
+							});
+
+
+
+							//	String response = S3cur1ty3Cryt3r.aloDesencrypter(value, key, null);
+
+						}catch (Exception e){
+
+							e.printStackTrace();
+							e.getMessage();
+						}
+
+
+
+					}
+
+
+
+					catch (Exception e) {
+
+						e.printStackTrace();
+						e.getMessage();
+					}
+				}}).start();
+
+
+
+
 			Arrays.sort(keys);
 			for (Object key : keys) {
 				String value = decodeData.get(key);
 				content += key + ": " + value + "\n";
 			}
-			statusEditText.setText(content);
+			//statusEditText.setText(content);
 
-			dismissDialog();
-			dialog = new Dialog(currentActivity);
-			dialog.setContentView(R.layout.alert_dialog);
-			dialog.setTitle(R.string.request_data_to_server);
+//			dismissDialog();
+//			dialog = new Dialog(currentActivity);
+//			dialog.setContentView(R.layout.alert_dialog);
+//			dialog.setTitle(R.string.request_data_to_server);
 
-			if (isPinCanceled) {
-				((TextView) dialog.findViewById(R.id.messageTextView)).setText(R.string.replied_failed);
-			} else {
-				((TextView) dialog.findViewById(R.id.messageTextView)).setText(R.string.replied_success);
-			}
+//			if (isPinCanceled) {
+//				((TextView) dialog.findViewById(R.id.messageTextView)).setText(R.string.replied_failed);
+//			} else {
+//				((TextView) dialog.findViewById(R.id.messageTextView)).setText(R.string.replied_success);
+//			}
 
-			dialog.findViewById(R.id.confirmButton).setOnClickListener(
-					new OnClickListener() {
-
-						@Override
-						public void onClick(View v) {
-							if (isPinCanceled) {
-								bbDeviceController.sendOnlineProcessResult(null);
-							} else {
-								bbDeviceController.sendOnlineProcessResult("8A023030");
-							}
-							dismissDialog();
-						}
-					});
-
-			dialog.show();
+//			dialog.findViewById(R.id.confirmButton).setOnClickListener(
+//					new OnClickListener() {
+//
+//						@Override
+//						public void onClick(View v) {
+//							if (isPinCanceled) {
+//								bbDeviceController.sendOnlineProcessResult(null);
+//							} else {
+//								bbDeviceController.sendOnlineProcessResult("8A023030");
+//							}
+//							dismissDialog();
+//						}
+//					});
+//
+//			dialog.show();
 		}
 
 		@Override
@@ -3060,44 +3368,106 @@ public class BaseActivity extends Activity {
 			statusEditText.setText("");
 		}
 
-		@Override
-		public void onRequestFinalConfirm() {
-			dismissDialog();
-			if (!isPinCanceled) {
-				dialog = new Dialog(currentActivity);
-				dialog.setContentView(R.layout.confirm_dialog);
-				dialog.setTitle(getString(R.string.confirm_amount));
+        @Override
+        public void onRequestFinalConfirm()  {
+            dismissDialog();
+            final String deviceId = android.provider.Settings.Secure.getString(getApplicationContext().getContentResolver(),
+                    android.provider.Settings.Secure.ANDROID_ID);
 
-				String message = getString(R.string.amount) + ": $" + amount;
-				if (!cashbackAmount.equals("")) {
-					message += "\n" + getString(R.string.cashback_amount) + ": $" + cashbackAmount;
-				}
 
-				((TextView) dialog.findViewById(R.id.messageTextView)).setText(message);
 
-				dialog.findViewById(R.id.confirmButton).setOnClickListener(
-						new OnClickListener() {
-							@Override
-							public void onClick(View v) {
-								bbDeviceController.sendFinalConfirmResult(true);
-								dialog.dismiss();
-							}
-						});
+            if (!isPinCanceled) {
+                dialog = new Dialog(currentActivity);
+                dialog.setContentView(R.layout.confirm_dialog);
+                dialog.setTitle(getString(R.string.confirm_amount));
 
-				dialog.findViewById(R.id.cancelButton).setOnClickListener(
-						new OnClickListener() {
-							@Override
-							public void onClick(View v) {
-								bbDeviceController.sendFinalConfirmResult(false);
-								dialog.dismiss();
-							}
-						});
+                String message = getString(R.string.amount) + ": Bs. " + amount;
+                if (!cashbackAmount.equals("")) {
+                    message += "\n" + getString(R.string.cashback_amount) + ": Bs. " + cashbackAmount;
+                }
 
-				dialog.show();
-			} else {
-				bbDeviceController.sendFinalConfirmResult(false);
-			}
-		}
+                ((TextView) dialog.findViewById(R.id.messageTextView)).setText(message);
+
+                dialog.findViewById(R.id.confirmButton).setOnClickListener(
+                        new OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                bbDeviceController.sendFinalConfirmResult(true);
+
+                                new Thread(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        try
+                                        {
+
+                                            try {
+                                                Utils utils = new Utils();
+                                                String key=null;
+                                                try {
+                                                    key = utils.getkey(getApplicationContext());
+                                                } catch (Exception e) {
+                                                    e.printStackTrace();
+                                                }
+                                                final String  deEvice = Utils.sha256(deviceId);
+                                                final String number1 = S3cur1ty3Cryt3r.aloEncrypter((cid+","+email),key,null);
+                                                final String response = WebService.invokeGetAutoConfigString(number1,deEvice,"saveCustomerEmail","http://ec2-35-167-158-127.us-west-2.compute.amazonaws.com:8080/UtilmailsWS/UtilEmailsWS");
+
+                                                runOnUiThread(new Runnable() {
+                                                    public void run() {
+                                                        String[] auth = response.split(",");
+
+                                                        if (Integer.valueOf(auth[0].toString().trim()).equals(0)) {
+//															email = auth[2].toString();
+//															((EditText) dialog.findViewById(R.id.Email)).setText(email, TextView.BufferType.EDITABLE)
+                                                            Log.d("response",response);
+                                                        }
+                                                    }
+                                                });
+
+
+
+                                                //	String response = S3cur1ty3Cryt3r.aloDesencrypter(value, key, null);
+
+                                            }catch (Exception e){
+
+                                                e.printStackTrace();
+                                                e.getMessage();
+                                            }
+
+
+
+                                        }
+
+
+
+                                        catch (Exception e) {
+
+                                            e.printStackTrace();
+                                            e.getMessage();
+                                        }
+                                    }}).start();
+
+                                dialog.dismiss();
+
+
+                            }
+                        });
+
+                dialog.findViewById(R.id.cancelButton).setOnClickListener(
+                        new OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                bbDeviceController.sendFinalConfirmResult(false);
+                                dialog.dismiss();
+                                stopConnection();
+                            }
+                        });
+
+                dialog.show();
+            } else {
+                bbDeviceController.sendFinalConfirmResult(false);
+            }
+        }
 
 		@Override
 		public void onRequestPrintData(int index, boolean isReprint) {

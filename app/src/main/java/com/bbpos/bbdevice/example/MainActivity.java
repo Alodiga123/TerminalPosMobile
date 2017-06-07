@@ -5,12 +5,15 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.util.Hashtable;
 import java.util.Locale;
+import java.util.Set;
 
 import com.bbpos.bbdevice.BBDeviceController;
 import com.bbpos.bbdevice.BBDeviceController.CheckCardMode;
 import com.bbpos.bbdevice.BBDeviceController.EmvOption;
 
 import android.app.Fragment;
+import android.bluetooth.BluetoothAdapter;
+import android.bluetooth.BluetoothDevice;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
@@ -38,12 +41,12 @@ public class MainActivity extends BaseActivity  {
 		setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 		setContentView(R.layout.activity_main);
 
-		((TextView) findViewById(R.id.modelTextView)).setText(Build.MANUFACTURER.toUpperCase(Locale.ENGLISH) + " - " + Build.MODEL + " (Android " + Build.VERSION.RELEASE + ")");
+		//((TextView) findViewById(R.id.modelTextView)).setText(Build.MANUFACTURER.toUpperCase(Locale.ENGLISH) + " - " + Build.MODEL + " (Android " + Build.VERSION.RELEASE + ")");
 
 		fidSpinner = (Spinner) findViewById(R.id.fidSpinner);
 		startButton = (Button) findViewById(R.id.startButton);
-		amountEditText = (EditText) findViewById(R.id.amountEditText);
-		statusEditText = (EditText) findViewById(R.id.statusEditText);
+		amountEditText = (TextView) findViewById(R.id.amountEditText);
+		statusEditText = (TextView) findViewById(R.id.statusEditText);
 
 		MyOnClickListener myOnClickListener = new MyOnClickListener();
 		startButton.setOnClickListener(myOnClickListener);
@@ -51,6 +54,7 @@ public class MainActivity extends BaseActivity  {
 		String[] fids = new String[] { "FID22", "FID36", "FID46", "FID54", "FID55", "FID60", "FID61", "FID64", "FID65", };
 		fidSpinner.setAdapter(new ArrayAdapter<String>(this, R.layout.my_spinner_item, fids));
 		fidSpinner.setSelection(5);
+		fidSpinner.setVisibility(View.INVISIBLE);
 
 		currentActivity = this;
 		
@@ -92,8 +96,25 @@ public class MainActivity extends BaseActivity  {
 				amountEditText.setText("");
 
 				statusEditText.setText(R.string.starting);
-				promptForStartEmv();
-				//promptForCheckCard();
+				BluetoothAdapter bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
+				Set<BluetoothDevice> pairedDevice = bluetoothAdapter.getBondedDevices();
+				if(pairedDevice.size()>0) {
+					for (BluetoothDevice device : pairedDevice) {
+
+						if (device.getAddress().toString().trim().equals("2F:11:2F:CF:0F:DC")) {
+
+							bbDeviceController.connectBT(device);
+						}
+
+						try {
+							promptForEmail();
+						} catch (Exception e) {
+							e.printStackTrace();
+						}
+						//  promptForStartEmv();
+						//promptForCheckCard();
+					}
+				}
 			}
 		}
 	}
@@ -102,7 +123,7 @@ public class MainActivity extends BaseActivity  {
 		@Override
 		protected Void doInBackground(String... params) {
 			if (isLoadedWebServiceAutoConfig == false) {
-				webAutoConfigString = WebService.invokeGetAutoConfigString(Build.MANUFACTURER.toUpperCase(Locale.US), Build.MODEL.toUpperCase(Locale.US), BBDeviceController.getApiVersion(), "getAutoConfigString");
+			//	webAutoConfigString = WebService.invokeGetAutoConfigString(Build.MANUFACTURER.toUpperCase(Locale.US), Build.MODEL.toUpperCase(Locale.US), BBDeviceController.getApiVersion(), "getAutoConfigString");
 			}
 			return null;
 		}

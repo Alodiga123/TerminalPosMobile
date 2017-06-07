@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="BluetoothNC">蓝牙未连接</string>
+    <string name="Checking">经常账户</string>
+    <string name="Field_empty">字段不能为空</string>
+    <string name="Goods">销售</string>
+    <string name="Id">宪章</string>
+    <string name="Id_email">证书和电子邮件</string>
+    <string name="No_internet">没有网络连接</string>
+    <string name="Saving">储蓄账户</string>
     <string name="advice_process">咨询过程。</string>
     <string name="amount">金额</string>
     <string name="amount_canceled">金额已取消</string>
@@ -18,6 +26,7 @@
     <string name="atr">ATR:</string>
     <string name="atr_length">ATR Length:</string>
     <string name="audio_started">音频模式开始</string>
+    <string name="auth_failed">身份验证失败</string>
     <string name="authorising">正在授权…</string>
     <string name="auto_config">自动配置</string>
     <string name="auto_config_completed">完成自动适配</string>
@@ -120,6 +129,7 @@
     <string name="disable_input_amount_fail">关闭金额输入失败</string>
     <string name="disable_input_amount_success">关闭金额输入成功</string>
     <string name="discovered_devices">找到的装置</string>
+    <string name="email">电子邮件</string>
     <string name="emv_card_balance_failed">获取卡馀额失败</string>
     <string name="emv_card_balance_result">卡馀额：</string>
     <string name="emv_card_data_failed">获取卡数据失败</string>
@@ -161,6 +171,7 @@
     <string name="find_capk">搜寻CAPK</string>
     <string name="firmware_version">固件版本：</string>
     <string name="format_id">格式ID： </string>
+    <string name="general_error">一般错误</string>
     <string name="get_capk_detail">获取CAPK资料</string>
     <string name="get_capk_list">获取CAPK列表</string>
     <string name="get_emv_report">获取EMV报告</string>
@@ -191,8 +202,13 @@
     <string name="insert_or_tap">插卡/拍卡</string>
     <string name="insert_or_tap_card">请插卡或拍卡</string>
     <string name="insert_swipe_or_try_another_card">请插卡/刷卡或试其他卡</string>
+    <string name="insufficient_funds">不充足的资金</string>
+    <string name="invalid_amount">无效金额</string>
+    <string name="invalid_card">无效卡</string>
+    <string name="invalid_credit_card">信用卡无效</string>
     <string name="invalid_format">输入格式无效。</string>
     <string name="invalid_function">无效的指令</string>
+    <string name="invalid_transaction">无效交易</string>
     <string name="is_session_initialized">是否已初始化会话</string>
     <string name="key_error">加密密钥错误</string>
     <string name="key_exchange">密钥交換</string>
@@ -214,9 +230,12 @@
     <string name="main_processor_version">主要处理器固件版本：</string>
     <string name="manual_pan_entry">手動輸入PAN</string>
     <string name="masked_pan">屏蔽卡号：</string>
+    <string name="max_attemp_title">达到最大尝试</string>
+    <string name="max_attemps">达到最大尝试次数。 申请将现在停止</string>
     <string name="menu_capk">CAPK</string>
     <string name="message">信息：</string>
     <string name="message_ksn">讯息 KSN：</string>
+    <string name="missing_parameters">缺少参数</string>
     <string name="mk">Master Key</string>
     <string name="model_name">型号名称: </string>
     <string name="modulus">Modulus:</string>
@@ -245,7 +264,9 @@
     <string name="paired_devices">已配对的装置</string>
     <string name="pan">卡号：</string>
     <string name="partial_track">部分磁轨： </string>
+    <string name="pass_not_empty">密码字段不能为空</string>
     <string name="password">Password : </string>
+    <string name="payment_declined">付款被拒</string>
     <string name="phone_number">电话号码：</string>
     <string name="pin">密码</string>
     <string name="pin_bypassed">密码已略过</string>
@@ -312,6 +333,7 @@
     <string name="read_wifi_setting_success">Read WIFI setting success</string>
     <string name="reading_aid">读取AID中…</string>
     <string name="receipt_data">单据资料：</string>
+    <string name="records_not_found">记录未找到</string>
     <string name="refer_payment_device">请参阅您的付款装置</string>
     <string name="remove_card">交易结束，请取回卡</string>
     <string name="replied_connected">回覆已连线</string>
@@ -339,6 +361,7 @@
     <string name="serial_disconnected">串口已断开</string>
     <string name="serial_number">序号: </string>
     <string name="service_code">服务代码： </string>
+    <string name="service_not_available">服务不可用</string>
     <string name="session_error_firmware_not_supported">固件不支援</string>
     <string name="session_error_invalid_session">会话无效</string>
     <string name="session_error_invalid_vendor_token">厂商代符无效</string>
@@ -379,6 +402,7 @@
     <string name="tap">拍卡</string>
     <string name="tap_card_again">请再拍卡</string>
     <string name="tap_card_detected">侦测到拍卡</string>
+    <string name="terminal_failure">失败终端</string>
     <string name="terminal_setting_status">Terminal setting status : </string>
     <string name="terminal_setting_version">终端设定版本：</string>
     <string name="time">时间: </string>
@@ -387,6 +411,7 @@
     <string name="tlv">TLV</string>
     <string name="tlv_incorrect">TLV incorrect</string>
     <string name="tlv_list">TLV列表：\n</string>
+    <string name="token_not_found">令牌未找到</string>
     <string name="track_1_length">磁轨1长度：</string>
     <string name="track_1_status">磁轨1状态：</string>
     <string name="track_1_supported">支持磁轨1：</string>
@@ -399,6 +424,7 @@
     <string name="track_3_supported">支持磁轨3：</string>
     <string name="track_encoding">Track Encoding:</string>
     <string name="track_ksn">磁轨KSN： </string>
+    <string name="transaction">开始交易</string>
     <string name="transaction_app_fail">不成功〔App失败〕</string>
     <string name="transaction_application_blocked">App已被停用</string>
     <string name="transaction_approved">成功</string>
@@ -459,6 +485,7 @@
     <string name="use_icc_card">请使用ICC卡</string>
     <string name="use_mag_stripe">请使用磁条</string>
     <string name="user_defined_data_not_allowed_to_change">User defined data not allowed to change</string>
+    <string name="user_not_empty">用户字段不能为空</string>
     <string name="username">Username : </string>
     <string name="value">值：</string>
     <string name="vendor_id">供应商ID：</string>

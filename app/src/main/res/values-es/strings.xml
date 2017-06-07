@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">BBDevice-Example-3.2.0</string>
+    <string name="BluetoothNC">Bluetooth desactivado</string>
+    <string name="No_internet">No esta conectado a Internet</string>
+    <string name="user_not_empty">El campo de usuario no puede estar vacio</string>
+    <string name="pass_not_empty">Campo de contraseña no puede estar vacia</string>
+    <string name="max_attemp_title">Máximo de intentos excedido</string>
+    <string name="invalid_password">Contraseña inválida</string>
+    <string name="general_error">Error general</string>
+    <string name="max_attemps">Máximo numero de intentos excedidos, la aplicación se cerrará ahora</string>
+    <string name="transaction">Comenzar transacción</string>
+    <string name="Id_email">Cédula y correo electrónico</string>
+    <string name="Field_empty">Los campos no pueden estar vacios</string>
+    <string name="Id">Cédula</string>
+    <string name="email">Correo electrónico</string>
+    <string name="Goods">Ventas</string>
+    <string name="Checking">Cuenta corriente</string>
+    <string name="Saving">Cuenta de ahorros</string>
+    <string name="amount">Monto</string>
+    <string name="auth_failed">Error de autenticación</string>
+    <string name="missing_parameters">Faltan parámetros</string>
+    <string name="invalid_amount">Monto inválido</string>
+    <string name="invalid_credit_card">Tarjeta de credito inválida</string>
+    <string name="inject_session_key_success"></string>
+    <string name="records_not_found">Registros no encontrado</string>
+    <string name="insufficient_funds">Fondos insuficientes</string>
+    <string name="service_not_available">Servicio inactivo</string>
+    <string name="payment_declined">Pago declinado</string>
+    <string name="token_not_found">Token invalido</string>
+    <string name="invalid_transaction">Transaccion invalida</string>
+    <string name="terminal_failure">Fallo del terminal</string>
+    <string name="invalid_card">Tarjeta inválida</string>
+</resources>

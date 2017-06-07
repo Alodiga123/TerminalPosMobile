@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/src/main/AndroidManifest.xml:2:1-39:12
+ADDED from /home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/src/main/AndroidManifest.xml:2:1-59:12
 	package
 		ADDED from /home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/src/main/AndroidManifest.xml:3:5-41
 		INJECTED from /home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/src/main/AndroidManifest.xml
@@ -17,7 +17,7 @@ ADDED from /home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/src/main/AndroidM
 		ADDED from /home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/src/main/AndroidManifest.xml:2:11-69
 uses-sdk
 ADDED from /home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/src/main/AndroidManifest.xml:7:5-9:41
-MERGED from [com.android.support:support-v4:22.2.1] /home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.2.1/AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:support-v4:22.2.1] /home/usuario/.android/build-cache/9c286f7d2f83eeb5bd3d420a691515ba7e36b2d6/output/AndroidManifest.xml:20:5-43
 	android:targetSdkVersion
 		ADDED from /home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/src/main/AndroidManifest.xml:9:9-38
 		INJECTED from /home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/src/main/AndroidManifest.xml
@@ -30,74 +30,110 @@ uses-permission#android.permission.BLUETOOTH
 ADDED from /home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/src/main/AndroidManifest.xml:10:5-67
 	android:name
 		ADDED from /home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/src/main/AndroidManifest.xml:10:22-65
+uses-permission#android.permission.INTERNET
+ADDED from /home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/src/main/AndroidManifest.xml:11:5-66
+	android:name
+		ADDED from /home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/src/main/AndroidManifest.xml:11:22-64
 uses-permission#android.permission.BLUETOOTH_ADMIN
-ADDED from /home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/src/main/AndroidManifest.xml:11:5-73
+ADDED from /home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/src/main/AndroidManifest.xml:12:5-73
 	android:name
-		ADDED from /home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/src/main/AndroidManifest.xml:11:22-71
+		ADDED from /home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/src/main/AndroidManifest.xml:12:22-71
 uses-permission#android.permission.RECORD_AUDIO
-ADDED from /home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/src/main/AndroidManifest.xml:12:5-70
+ADDED from /home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/src/main/AndroidManifest.xml:13:5-70
 	android:name
-		ADDED from /home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/src/main/AndroidManifest.xml:12:22-68
+		ADDED from /home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/src/main/AndroidManifest.xml:13:22-68
 uses-permission#android.permission.ACCESS_COARSE_LOCATION
-ADDED from /home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/src/main/AndroidManifest.xml:13:5-80
-	android:name
-		ADDED from /home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/src/main/AndroidManifest.xml:13:22-78
-uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
 ADDED from /home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/src/main/AndroidManifest.xml:14:5-80
 	android:name
 		ADDED from /home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/src/main/AndroidManifest.xml:14:22-78
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+ADDED from /home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/src/main/AndroidManifest.xml:15:5-80
+	android:name
+		ADDED from /home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/src/main/AndroidManifest.xml:15:22-78
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from /home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/src/main/AndroidManifest.xml:16:5-79
+	android:name
+		ADDED from /home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/src/main/AndroidManifest.xml:16:22-76
 application
-ADDED from /home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/src/main/AndroidManifest.xml:16:5-37:19
-MERGED from [com.android.support:support-v4:22.2.1] /home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.2.1/AndroidManifest.xml:22:5-20
+ADDED from /home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/src/main/AndroidManifest.xml:18:5-57:19
+MERGED from [com.android.support:support-v4:22.2.1] /home/usuario/.android/build-cache/9c286f7d2f83eeb5bd3d420a691515ba7e36b2d6/output/AndroidManifest.xml:22:5-20
 	android:label
-		ADDED from /home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/src/main/AndroidManifest.xml:19:9-41
+		ADDED from /home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/src/main/AndroidManifest.xml:21:9-41
 	android:allowBackup
-		ADDED from /home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/src/main/AndroidManifest.xml:17:9-35
+		ADDED from /home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/src/main/AndroidManifest.xml:19:9-35
 	android:icon
-		ADDED from /home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/src/main/AndroidManifest.xml:18:9-45
+		ADDED from /home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/src/main/AndroidManifest.xml:20:9-45
 	android:theme
-		ADDED from /home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/src/main/AndroidManifest.xml:20:9-40
-activity#com.bbpos.bbdevice.example.MainActivity
-ADDED from /home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/src/main/AndroidManifest.xml:21:9-32:20
+		ADDED from /home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/src/main/AndroidManifest.xml:22:9-40
+activity#com.bbpos.bbdevice.example.SplashScreenActivity
+ADDED from /home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/src/main/AndroidManifest.xml:23:9-33:20
 	android:label
-		ADDED from /home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/src/main/AndroidManifest.xml:23:13-45
+		ADDED from /home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/src/main/AndroidManifest.xml:25:13-45
+	android:theme
+		ADDED from /home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/src/main/AndroidManifest.xml:26:13-77
 	android:name
-		ADDED from /home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/src/main/AndroidManifest.xml:22:13-67
+		ADDED from /home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/src/main/AndroidManifest.xml:24:13-75
 intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
-ADDED from /home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/src/main/AndroidManifest.xml:24:13-27:29
+ADDED from /home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/src/main/AndroidManifest.xml:28:13-32:29
 action#android.intent.action.MAIN
-ADDED from /home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/src/main/AndroidManifest.xml:25:17-69
+ADDED from /home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/src/main/AndroidManifest.xml:29:17-69
 	android:name
-		ADDED from /home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/src/main/AndroidManifest.xml:25:25-66
+		ADDED from /home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/src/main/AndroidManifest.xml:29:25-66
 category#android.intent.category.LAUNCHER
-ADDED from /home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/src/main/AndroidManifest.xml:26:17-77
+ADDED from /home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/src/main/AndroidManifest.xml:31:17-77
 	android:name
-		ADDED from /home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/src/main/AndroidManifest.xml:26:27-74
+		ADDED from /home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/src/main/AndroidManifest.xml:31:27-74
+activity#com.bbpos.bbdevice.example.LoginActivity
+ADDED from /home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/src/main/AndroidManifest.xml:34:9-38:79
+	android:label
+		ADDED from /home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/src/main/AndroidManifest.xml:36:13-45
+	android:launchMode
+		ADDED from /home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/src/main/AndroidManifest.xml:37:13-44
+	android:theme
+		ADDED from /home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/src/main/AndroidManifest.xml:38:13-77
+	android:name
+		ADDED from /home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/src/main/AndroidManifest.xml:35:13-42
 intent-filter#android.hardware.usb.action.USB_DEVICE_ATTACHED
-ADDED from /home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/src/main/AndroidManifest.xml:28:13-30:29
+ADDED from /home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/src/main/AndroidManifest.xml:39:9-41:25
 action#android.hardware.usb.action.USB_DEVICE_ATTACHED
-ADDED from /home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/src/main/AndroidManifest.xml:29:17-90
+ADDED from /home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/src/main/AndroidManifest.xml:40:13-86
 	android:name
-		ADDED from /home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/src/main/AndroidManifest.xml:29:25-87
+		ADDED from /home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/src/main/AndroidManifest.xml:40:21-83
 meta-data#android.hardware.usb.action.USB_DEVICE_ATTACHED
-ADDED from /home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/src/main/AndroidManifest.xml:31:13-131
+ADDED from /home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/src/main/AndroidManifest.xml:42:9-127
 	android:resource
-		ADDED from /home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/src/main/AndroidManifest.xml:31:87-128
+		ADDED from /home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/src/main/AndroidManifest.xml:42:83-124
 	android:name
-		ADDED from /home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/src/main/AndroidManifest.xml:31:24-86
+		ADDED from /home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/src/main/AndroidManifest.xml:42:20-82
+activity#com.bbpos.bbdevice.example.MainActivity
+ADDED from /home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/src/main/AndroidManifest.xml:43:9-47:15
+	android:label
+		ADDED from /home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/src/main/AndroidManifest.xml:45:13-45
+	android:theme
+		ADDED from /home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/src/main/AndroidManifest.xml:46:13-77
+	android:name
+		ADDED from /home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/src/main/AndroidManifest.xml:44:13-41
+activity#com.bbpos.bbdevice.example.IndexActivity
+ADDED from /home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/src/main/AndroidManifest.xml:49:9-51:79
+	android:label
+		ADDED from /home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/src/main/AndroidManifest.xml:50:13-45
+	android:theme
+		ADDED from /home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/src/main/AndroidManifest.xml:51:13-77
+	android:name
+		ADDED from /home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/src/main/AndroidManifest.xml:49:19-48
 activity#com.bbpos.bbdevice.example.ApduActivity
-ADDED from /home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/src/main/AndroidManifest.xml:33:9-58
+ADDED from /home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/src/main/AndroidManifest.xml:53:9-58
 	android:name
-		ADDED from /home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/src/main/AndroidManifest.xml:33:19-46
+		ADDED from /home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/src/main/AndroidManifest.xml:53:19-46
 activity#com.bbpos.bbdevice.example.CAPKActivity
-ADDED from /home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/src/main/AndroidManifest.xml:34:9-58
+ADDED from /home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/src/main/AndroidManifest.xml:54:9-58
 	android:name
-		ADDED from /home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/src/main/AndroidManifest.xml:34:19-46
+		ADDED from /home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/src/main/AndroidManifest.xml:54:19-46
 activity#com.bbpos.bbdevice.example.GprsWifiActivity
-ADDED from /home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/src/main/AndroidManifest.xml:35:9-62
+ADDED from /home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/src/main/AndroidManifest.xml:55:9-62
 	android:name
-		ADDED from /home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/src/main/AndroidManifest.xml:35:19-50
+		ADDED from /home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/src/main/AndroidManifest.xml:55:19-50
 activity#com.bbpos.bbdevice.example.NfcActivity
-ADDED from /home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/src/main/AndroidManifest.xml:36:9-57
+ADDED from /home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/src/main/AndroidManifest.xml:56:9-57
 	android:name
-		ADDED from /home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/src/main/AndroidManifest.xml:36:19-45
+		ADDED from /home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/src/main/AndroidManifest.xml:56:19-45

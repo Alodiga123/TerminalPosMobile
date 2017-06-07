@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1"
+    android:background="#FFFFFF"
+
+
+    >
+
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageV"
+        android:src="@drawable/bav"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_above="@+id/linearLayout" />
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:padding="10dp"
+        android:id="@+id/linearLayout">
+
+
+
+
+
+
+
+
+        <EditText
+            android:id="@+id/txtUser"
+            android:background="@drawable/edittext_top_bg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:maxLength="18"
+            android:layout_marginTop="-2dp"
+            android:fontFamily="sans-serif"
+            android:inputType="textVisiblePassword|textNoSuggestions"
+            android:lines="1"
+            android:padding="10dp"
+            android:hint="Usuario"
+            android:textColorHint="#cccccc"
+            android:drawableLeft="@drawable/icon_user"/>
+
+
+        <EditText
+            android:id="@+id/txtPassword"
+            android:fontFamily="sans-serif"
+            android:layout_width="match_parent"
+
+            android:layout_height="wrap_content"
+            android:background="@drawable/edittext_top_bg"
+            android:layout_marginTop="-2dp"
+            android:padding="10dp"
+            android:hint="Contraseña"
+            android:maxLength="20"
+            android:lines="1"
+            android:textColorHint="#bbbbbb"
+            android:inputType="textPassword"
+            android:drawableLeft="@drawable/icon_key"/>
+
+        <CheckBox
+            android:text="Mantenerse Conectado"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/KeepSingIn"
+            android:textColor="#000000" />
+    </LinearLayout>
+    <Button
+        android:id="@+id/btnSign"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:layout_margin="4dp"
+        android:text="Ingresar"
+        android:background="#ff5f8cff"
+        style="@style/DefaultButtonText"
+        android:layout_marginTop="1dp"
+        android:layout_below="@+id/linearLayout"
+        android:layout_alignRight="@+id/linearLayout"
+        android:layout_alignEnd="@+id/linearLayout"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <ProgressBar
+        style="@android:style/Widget.ProgressBar.Small.Inverse"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:id="@+id/progressBar"
+        android:visibility="invisible"
+        android:layout_below="@+id/btnSign"
+        android:layout_centerHorizontal="true"
+        android:indeterminate="false" />
+
+
+</RelativeLayout>
