@@ -3,6 +3,9 @@ package com.bbpos.bbdevice.example;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+
 import java.util.Hashtable;
 import java.util.Locale;
 import java.util.Set;
@@ -11,7 +14,7 @@ import com.bbpos.bbdevice.BBDeviceController;
 import com.bbpos.bbdevice.BBDeviceController.CheckCardMode;
 import com.bbpos.bbdevice.BBDeviceController.EmvOption;
 
-import android.app.Fragment;
+
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.os.AsyncTask;
@@ -29,27 +32,30 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.content.pm.ActivityInfo;
 
-public class MainActivity extends BaseActivity  {
+public class MainActivity extends BaseActivity {
 
 	protected static String webAutoConfigString = "";
 	protected static boolean isLoadedLocalSettingFile = false;
 	protected static boolean isLoadedWebServiceAutoConfig = false;
-	
+
+
+
+
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 		setContentView(R.layout.activity_main);
 
+
 		//((TextView) findViewById(R.id.modelTextView)).setText(Build.MANUFACTURER.toUpperCase(Locale.ENGLISH) + " - " + Build.MODEL + " (Android " + Build.VERSION.RELEASE + ")");
 
 		fidSpinner = (Spinner) findViewById(R.id.fidSpinner);
-		startButton = (Button) findViewById(R.id.startButton);
+		//startButton = (Button) findViewById(R.id.startButton);
 		amountEditText = (TextView) findViewById(R.id.amountEditText);
 		statusEditText = (TextView) findViewById(R.id.statusEditText);
 
-		MyOnClickListener myOnClickListener = new MyOnClickListener();
-		startButton.setOnClickListener(myOnClickListener);
+
 
 		String[] fids = new String[] { "FID22", "FID36", "FID46", "FID54", "FID55", "FID60", "FID61", "FID64", "FID65", };
 		fidSpinner.setAdapter(new ArrayAdapter<String>(this, R.layout.my_spinner_item, fids));
@@ -85,7 +91,7 @@ public class MainActivity extends BaseActivity  {
         task.execute();
 	}
 
-	class MyOnClickListener implements OnClickListener {
+/*	class MyOnClickListener implements OnClickListener {
 
 		@Override
 		public void onClick(View v) {
@@ -117,7 +123,7 @@ public class MainActivity extends BaseActivity  {
 				}
 			}
 		}
-	}
+	}*/
 	
 	private class AsyncCallWS extends AsyncTask<String, Void, Void> {
 		@Override

@@ -1,5 +1,13 @@
 [
     {
+        "merged": "/home/usuario/Descargas/TerminalPosMobile/app/build/intermediates/res/merged/debug/raw/bbpos.jpg",
+        "source": "/home/usuario/Descargas/TerminalPosMobile/app/src/main/res/raw/bbpos.jpg"
+    },
+    {
+        "merged": "/home/usuario/Descargas/TerminalPosMobile/app/build/intermediates/res/merged/debug/raw/barcode.png",
+        "source": "/home/usuario/Descargas/TerminalPosMobile/app/src/main/res/raw/barcode.png"
+    },
+    {
         "merged": "/home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/build/intermediates/res/merged/debug/raw/barcode.png",
         "source": "/home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/src/main/res/raw/barcode.png"
     },

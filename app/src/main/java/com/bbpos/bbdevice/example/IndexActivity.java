@@ -19,7 +19,7 @@ public class IndexActivity extends Activity {
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         setContentView(R.layout.index_activity);
         Intent intent = getIntent();
-        final String token = intent.getStringExtra("token");
+        //final String token = intent.getStringExtra("token");
 
 
         final Button Sales=(Button) findViewById(R.id.btnVentas);
@@ -27,7 +27,7 @@ public class IndexActivity extends Activity {
             @Override
             public void onClick(View v) {
                 Intent newForms = new Intent(com.bbpos.bbdevice.example.IndexActivity.this, com.bbpos.bbdevice.example.MainActivity.class);
-                newForms.putExtra("token",token);
+               // newForms.putExtra("token",token);
                 startActivity(newForms);
             }
         });

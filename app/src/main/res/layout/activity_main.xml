@@ -41,6 +41,15 @@
 		android:layout_alignParentStart="true"
 		android:layout_marginBottom="85dp">
 
+		<FrameLayout
+			android:id="@+id/container"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent">
+
+
+
+		</FrameLayout>
+
 		<TextView
 			android:id="@+id/amountEditText"
 			android:layout_width="fill_parent"
@@ -52,23 +61,7 @@
 			android:textColor="#000000"
 			android:gravity="center" />
 
-		<Button
-			android:id="@+id/startButton"
-			android:layout_width="80dp"
-			android:layout_height="80dp"
 
-			android:layout_gravity="center"
-			android:background="@drawable/ventas"/>
-
-		<TextView
-			android:text="@string/transaction"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:layout_gravity="center"
-			android:id="@+id/textView"
-			android:layout_weight="0.15"
-			android:textColor="#000000"
-			/>
 
 		<TextView
 			android:id="@+id/statusEditText"
@@ -84,8 +77,3 @@
 	</LinearLayout>
 
 </RelativeLayout>
-	<!--	<fragment
-			android:id="@+id/fragment"
-			android:name="android.support.v4.app.DialogFragment"
-			android:layout_width="match_parent"
-			android:layout_height="match_parent" />-->

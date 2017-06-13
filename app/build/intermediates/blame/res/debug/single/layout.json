@@ -4,16 +4,28 @@
         "source": "/home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/src/main/res/layout/control_led_dialog.xml"
     },
     {
-        "merged": "/home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/build/intermediates/res/merged/debug/layout/bluetooth_4_device_list_dialog.xml",
-        "source": "/home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/src/main/res/layout/bluetooth_4_device_list_dialog.xml"
+        "merged": "/home/usuario/Descargas/TerminalPosMobile/app/build/intermediates/res/merged/debug/layout/index_activity.xml",
+        "source": "/home/usuario/Descargas/TerminalPosMobile/app/src/main/res/layout/index_activity.xml"
     },
     {
         "merged": "/home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/build/intermediates/res/merged/debug/layout/refer_process_dialog.xml",
         "source": "/home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/src/main/res/layout/refer_process_dialog.xml"
     },
     {
-        "merged": "/home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/build/intermediates/res/merged/debug/layout/activity_apdu.xml",
-        "source": "/home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/src/main/res/layout/activity_apdu.xml"
+        "merged": "/home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/build/intermediates/res/merged/debug/layout/bluetooth_4_device_list_dialog.xml",
+        "source": "/home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/src/main/res/layout/bluetooth_4_device_list_dialog.xml"
+    },
+    {
+        "merged": "/home/usuario/Descargas/TerminalPosMobile/app/build/intermediates/res/merged/debug/layout/refer_process_dialog.xml",
+        "source": "/home/usuario/Descargas/TerminalPosMobile/app/src/main/res/layout/refer_process_dialog.xml"
+    },
+    {
+        "merged": "/home/usuario/Descargas/TerminalPosMobile/app/build/intermediates/res/merged/debug/layout/general_string_input_dialog.xml",
+        "source": "/home/usuario/Descargas/TerminalPosMobile/app/src/main/res/layout/general_string_input_dialog.xml"
+    },
+    {
+        "merged": "/home/usuario/Descargas/TerminalPosMobile/app/build/intermediates/res/merged/debug/layout/connection_dialog.xml",
+        "source": "/home/usuario/Descargas/TerminalPosMobile/app/src/main/res/layout/connection_dialog.xml"
     },
     {
         "merged": "/home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/build/intermediates/res/merged/debug/layout/splash_activity.xml",
@@ -32,28 +44,20 @@
         "source": "/home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/src/main/res/layout/index_activity.xml"
     },
     {
-        "merged": "/home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/build/intermediates/res/merged/debug/layout/wifi_dialog.xml",
-        "source": "/home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/src/main/res/layout/wifi_dialog.xml"
+        "merged": "/home/usuario/Descargas/TerminalPosMobile/app/build/intermediates/res/merged/debug/layout/application_dialog.xml",
+        "source": "/home/usuario/Descargas/TerminalPosMobile/app/src/main/res/layout/application_dialog.xml"
     },
     {
         "merged": "/home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/build/intermediates/res/merged/debug/layout/check_card_mode_dialog.xml",
         "source": "/home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/src/main/res/layout/check_card_mode_dialog.xml"
     },
     {
-        "merged": "/home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/build/intermediates/res/merged/debug/layout/application_dialog.xml",
-        "source": "/home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/src/main/res/layout/application_dialog.xml"
-    },
-    {
         "merged": "/home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/build/intermediates/res/merged/debug/layout/activity_main.xml",
         "source": "/home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/src/main/res/layout/activity_main.xml"
     },
     {
-        "merged": "/home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/build/intermediates/res/merged/debug/layout/gprs_dialog.xml",
-        "source": "/home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/src/main/res/layout/gprs_dialog.xml"
-    },
-    {
-        "merged": "/home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/build/intermediates/res/merged/debug/layout/alert_dialog.xml",
-        "source": "/home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/src/main/res/layout/alert_dialog.xml"
+        "merged": "/home/usuario/Descargas/TerminalPosMobile/app/build/intermediates/res/merged/debug/layout/amount_dialog.xml",
+        "source": "/home/usuario/Descargas/TerminalPosMobile/app/src/main/res/layout/amount_dialog.xml"
     },
     {
         "merged": "/home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/build/intermediates/res/merged/debug/layout/inject_mk.xml",
@@ -64,20 +68,28 @@
         "source": "/home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/src/main/res/layout/my_spinner_item.xml"
     },
     {
-        "merged": "/home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/build/intermediates/res/merged/debug/layout/max_attemps_dialog.xml",
-        "source": "/home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/src/main/res/layout/max_attemps_dialog.xml"
+        "merged": "/home/usuario/Descargas/TerminalPosMobile/app/build/intermediates/res/merged/debug/layout/activity_gprs_wifi.xml",
+        "source": "/home/usuario/Descargas/TerminalPosMobile/app/src/main/res/layout/activity_gprs_wifi.xml"
+    },
+    {
+        "merged": "/home/usuario/Descargas/TerminalPosMobile/app/build/intermediates/res/merged/debug/layout/wifi_dialog.xml",
+        "source": "/home/usuario/Descargas/TerminalPosMobile/app/src/main/res/layout/wifi_dialog.xml"
     },
     {
         "merged": "/home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/build/intermediates/res/merged/debug/layout/connection_dialog.xml",
         "source": "/home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/src/main/res/layout/connection_dialog.xml"
     },
     {
+        "merged": "/home/usuario/Descargas/TerminalPosMobile/app/build/intermediates/res/merged/debug/layout/activity_main.xml",
+        "source": "/home/usuario/Descargas/TerminalPosMobile/app/src/main/res/layout/activity_main.xml"
+    },
+    {
         "merged": "/home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/build/intermediates/res/merged/debug/layout/general_string_input_dialog.xml",
         "source": "/home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/src/main/res/layout/general_string_input_dialog.xml"
     },
     {
-        "merged": "/home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/build/intermediates/res/merged/debug/layout/bluetooth_2_device_list_dialog.xml",
-        "source": "/home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/src/main/res/layout/bluetooth_2_device_list_dialog.xml"
+        "merged": "/home/usuario/Descargas/TerminalPosMobile/app/build/intermediates/res/merged/debug/layout/data_dialog.xml",
+        "source": "/home/usuario/Descargas/TerminalPosMobile/app/src/main/res/layout/data_dialog.xml"
     },
     {
         "merged": "/home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/build/intermediates/res/merged/debug/layout/capk_activity_main.xml",
@@ -92,16 +104,128 @@
         "source": "/home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/src/main/res/layout/general_string_and_radio_box_dialog.xml"
     },
     {
-        "merged": "/home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/build/intermediates/res/merged/debug/layout/confirm_dialog.xml",
-        "source": "/home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/src/main/res/layout/confirm_dialog.xml"
+        "merged": "/home/usuario/Descargas/TerminalPosMobile/app/build/intermediates/res/merged/debug/layout/inject_mk.xml",
+        "source": "/home/usuario/Descargas/TerminalPosMobile/app/src/main/res/layout/inject_mk.xml"
+    },
+    {
+        "merged": "/home/usuario/Descargas/TerminalPosMobile/app/build/intermediates/res/merged/debug/layout/internet_dialog.xml",
+        "source": "/home/usuario/Descargas/TerminalPosMobile/app/src/main/res/layout/internet_dialog.xml"
+    },
+    {
+        "merged": "/home/usuario/Descargas/TerminalPosMobile/app/build/intermediates/res/merged/debug/layout/bluetooth_2_device_list_dialog.xml",
+        "source": "/home/usuario/Descargas/TerminalPosMobile/app/src/main/res/layout/bluetooth_2_device_list_dialog.xml"
+    },
+    {
+        "merged": "/home/usuario/Descargas/TerminalPosMobile/app/build/intermediates/res/merged/debug/layout/login_activity.xml",
+        "source": "/home/usuario/Descargas/TerminalPosMobile/app/src/main/res/layout/login_activity.xml"
     },
     {
         "merged": "/home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/build/intermediates/res/merged/debug/layout/amount_dialog.xml",
         "source": "/home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/src/main/res/layout/amount_dialog.xml"
     },
     {
+        "merged": "/home/usuario/Descargas/TerminalPosMobile/app/build/intermediates/res/merged/debug/layout/pin_dialog.xml",
+        "source": "/home/usuario/Descargas/TerminalPosMobile/app/src/main/res/layout/pin_dialog.xml"
+    },
+    {
+        "merged": "/home/usuario/Descargas/TerminalPosMobile/app/build/intermediates/res/merged/debug/layout/check_card_mode_dialog.xml",
+        "source": "/home/usuario/Descargas/TerminalPosMobile/app/src/main/res/layout/check_card_mode_dialog.xml"
+    },
+    {
+        "merged": "/home/usuario/Descargas/TerminalPosMobile/app/build/intermediates/res/merged/debug/layout/splash_activity.xml",
+        "source": "/home/usuario/Descargas/TerminalPosMobile/app/src/main/res/layout/splash_activity.xml"
+    },
+    {
+        "merged": "/home/usuario/Descargas/TerminalPosMobile/app/build/intermediates/res/merged/debug/layout/general_string_and_radio_box_dialog.xml",
+        "source": "/home/usuario/Descargas/TerminalPosMobile/app/src/main/res/layout/general_string_and_radio_box_dialog.xml"
+    },
+    {
+        "merged": "/home/usuario/Descargas/TerminalPosMobile/app/build/intermediates/res/merged/debug/layout/control_led_dialog.xml",
+        "source": "/home/usuario/Descargas/TerminalPosMobile/app/src/main/res/layout/control_led_dialog.xml"
+    },
+    {
+        "merged": "/home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/build/intermediates/res/merged/debug/layout/activity_apdu.xml",
+        "source": "/home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/src/main/res/layout/activity_apdu.xml"
+    },
+    {
+        "merged": "/home/usuario/Descargas/TerminalPosMobile/app/build/intermediates/res/merged/debug/layout/activity_apdu.xml",
+        "source": "/home/usuario/Descargas/TerminalPosMobile/app/src/main/res/layout/activity_apdu.xml"
+    },
+    {
+        "merged": "/home/usuario/Descargas/TerminalPosMobile/app/build/intermediates/res/merged/debug/layout/bluetooth_4_device_list_dialog.xml",
+        "source": "/home/usuario/Descargas/TerminalPosMobile/app/src/main/res/layout/bluetooth_4_device_list_dialog.xml"
+    },
+    {
+        "merged": "/home/usuario/Descargas/TerminalPosMobile/app/build/intermediates/res/merged/debug/layout/max_attemps_dialog.xml",
+        "source": "/home/usuario/Descargas/TerminalPosMobile/app/src/main/res/layout/max_attemps_dialog.xml"
+    },
+    {
+        "merged": "/home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/build/intermediates/res/merged/debug/layout/wifi_dialog.xml",
+        "source": "/home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/src/main/res/layout/wifi_dialog.xml"
+    },
+    {
+        "merged": "/home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/build/intermediates/res/merged/debug/layout/application_dialog.xml",
+        "source": "/home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/src/main/res/layout/application_dialog.xml"
+    },
+    {
+        "merged": "/home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/build/intermediates/res/merged/debug/layout/main_fragment.xml",
+        "source": "/home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/src/main/res/layout/main_fragment.xml"
+    },
+    {
+        "merged": "/home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/build/intermediates/res/merged/debug/layout/gprs_dialog.xml",
+        "source": "/home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/src/main/res/layout/gprs_dialog.xml"
+    },
+    {
+        "merged": "/home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/build/intermediates/res/merged/debug/layout/alert_dialog.xml",
+        "source": "/home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/src/main/res/layout/alert_dialog.xml"
+    },
+    {
+        "merged": "/home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/build/intermediates/res/merged/debug/layout/max_attemps_dialog.xml",
+        "source": "/home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/src/main/res/layout/max_attemps_dialog.xml"
+    },
+    {
+        "merged": "/home/usuario/Descargas/TerminalPosMobile/app/build/intermediates/res/merged/debug/layout/alert_dialog.xml",
+        "source": "/home/usuario/Descargas/TerminalPosMobile/app/src/main/res/layout/alert_dialog.xml"
+    },
+    {
+        "merged": "/home/usuario/Descargas/TerminalPosMobile/app/build/intermediates/res/merged/debug/layout/capk_activity_main.xml",
+        "source": "/home/usuario/Descargas/TerminalPosMobile/app/src/main/res/layout/capk_activity_main.xml"
+    },
+    {
+        "merged": "/home/usuario/Descargas/TerminalPosMobile/app/build/intermediates/res/merged/debug/layout/verify_id_dialog.xml",
+        "source": "/home/usuario/Descargas/TerminalPosMobile/app/src/main/res/layout/verify_id_dialog.xml"
+    },
+    {
+        "merged": "/home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/build/intermediates/res/merged/debug/layout/bluetooth_2_device_list_dialog.xml",
+        "source": "/home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/src/main/res/layout/bluetooth_2_device_list_dialog.xml"
+    },
+    {
+        "merged": "/home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/build/intermediates/res/merged/debug/layout/confirm_dialog.xml",
+        "source": "/home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/src/main/res/layout/confirm_dialog.xml"
+    },
+    {
+        "merged": "/home/usuario/Descargas/TerminalPosMobile/app/build/intermediates/res/merged/debug/layout/my_spinner_item.xml",
+        "source": "/home/usuario/Descargas/TerminalPosMobile/app/src/main/res/layout/my_spinner_item.xml"
+    },
+    {
+        "merged": "/home/usuario/Descargas/TerminalPosMobile/app/build/intermediates/res/merged/debug/layout/activity_nfc.xml",
+        "source": "/home/usuario/Descargas/TerminalPosMobile/app/src/main/res/layout/activity_nfc.xml"
+    },
+    {
+        "merged": "/home/usuario/Descargas/TerminalPosMobile/app/build/intermediates/res/merged/debug/layout/confirm_dialog.xml",
+        "source": "/home/usuario/Descargas/TerminalPosMobile/app/src/main/res/layout/confirm_dialog.xml"
+    },
+    {
+        "merged": "/home/usuario/Descargas/TerminalPosMobile/app/build/intermediates/res/merged/debug/layout/gprs_dialog.xml",
+        "source": "/home/usuario/Descargas/TerminalPosMobile/app/src/main/res/layout/gprs_dialog.xml"
+    },
+    {
         "merged": "/home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/build/intermediates/res/merged/debug/layout/pin_dialog.xml",
         "source": "/home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/src/main/res/layout/pin_dialog.xml"
+    },
+    {
+        "merged": "/home/usuario/Descargas/TerminalPosMobile/app/build/intermediates/res/merged/debug/layout/main_fragment.xml",
+        "source": "/home/usuario/Descargas/TerminalPosMobile/app/src/main/res/layout/main_fragment.xml"
     },
     {
         "merged": "/home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/build/intermediates/res/merged/debug/layout/internet_dialog.xml",

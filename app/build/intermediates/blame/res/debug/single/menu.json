@@ -2,5 +2,9 @@
     {
         "merged": "/home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/build/intermediates/res/merged/debug/menu/activity_main.xml",
         "source": "/home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/src/main/res/menu/activity_main.xml"
+    },
+    {
+        "merged": "/home/usuario/Descargas/TerminalPosMobile/app/build/intermediates/res/merged/debug/menu/activity_main.xml",
+        "source": "/home/usuario/Descargas/TerminalPosMobile/app/src/main/res/menu/activity_main.xml"
     }
 ]
