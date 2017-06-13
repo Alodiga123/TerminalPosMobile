@@ -60,6 +60,9 @@ import android.bluetooth.BluetoothDevice;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.Menu;
@@ -94,7 +97,7 @@ import org.ksoap2.serialization.SoapPrimitive;
 import org.ksoap2.serialization.SoapSerializationEnvelope;
 import org.ksoap2.transport.HttpTransportSE;
 
-public class BaseActivity extends Activity {
+public class BaseActivity extends FragmentActivity {
 
 	protected enum State {
 		GETTING_PSE, READING_RECORD, READING_AID, GETTING_PROCESS_OPTION, READING_DATA
@@ -203,6 +206,7 @@ public class BaseActivity extends Activity {
 	private static int readingFileIndex = 0;
 	private static int total = 0;
 
+	private Fragment objFragment = null;
 	protected static long startTime;
 	protected static boolean isPKCS7 = false;
 	protected boolean isSwitchingActivity = false;
@@ -234,7 +238,12 @@ public class BaseActivity extends Activity {
 			BBDeviceController.setDebugLogEnabled(true);
 			bbDeviceController.setDetectAudioDevicePlugged(true);
 			Intent intent = getIntent();
-			token1 = intent.getStringExtra("token");
+			//token1 = intent.getStringExtra("token");
+			objFragment=new MainFragment();
+			FragmentManager fragmentManager = getSupportFragmentManager();
+			fragmentManager.beginTransaction()
+					.replace(R.id.container, objFragment)
+					.commit();
 		}
 	}
 	

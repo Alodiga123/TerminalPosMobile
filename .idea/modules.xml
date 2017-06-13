@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Alopos-Ultimo-Prototipo.iml" filepath="$PROJECT_DIR$/Alopos-Ultimo-Prototipo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/TerminalPosMobile.iml" filepath="$PROJECT_DIR$/TerminalPosMobile.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

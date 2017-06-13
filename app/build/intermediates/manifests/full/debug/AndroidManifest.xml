@@ -25,11 +25,6 @@
             android:name="com.bbpos.bbdevice.example.SplashScreenActivity"
             android:label="@string/app_name"
             android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name="com.bbpos.bbdevice.example.LoginActivity"
@@ -52,7 +47,13 @@
         <activity
             android:name="com.bbpos.bbdevice.example.IndexActivity"
             android:label="@string/app_name"
-            android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen" />
+            android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name="com.bbpos.bbdevice.example.ApduActivity" />
         <activity android:name="com.bbpos.bbdevice.example.CAPKActivity" />
         <activity android:name="com.bbpos.bbdevice.example.GprsWifiActivity" />

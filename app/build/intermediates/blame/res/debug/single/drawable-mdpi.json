@@ -1,15 +1,7 @@
 [
     {
-        "merged": "/home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/build/intermediates/res/merged/debug/drawable-mdpi/ic_launcher.png",
-        "source": "/home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/src/main/res/drawable-mdpi/ic_launcher.png"
-    },
-    {
         "merged": "/home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/build/intermediates/res/merged/debug/drawable-mdpi/ic_drawer.png",
         "source": "/home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/src/main/res/drawable-mdpi/ic_drawer.png"
-    },
-    {
-        "merged": "/home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/build/intermediates/res/merged/debug/drawable-mdpi/opciones.png",
-        "source": "/home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/src/main/res/drawable-mdpi/opciones.png"
     },
     {
         "merged": "/home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/build/intermediates/res/merged/debug/drawable-mdpi/creditcards.png",
@@ -18,6 +10,66 @@
     {
         "merged": "/home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/build/intermediates/res/merged/debug/drawable-mdpi/ameexpress.png",
         "source": "/home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/src/main/res/drawable-mdpi/ameexpress.png"
+    },
+    {
+        "merged": "/home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/build/intermediates/res/merged/debug/drawable-mdpi/visa.png",
+        "source": "/home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/src/main/res/drawable-mdpi/visa.png"
+    },
+    {
+        "merged": "/home/usuario/Descargas/TerminalPosMobile/app/build/intermediates/res/merged/debug/drawable-mdpi/bottonprocess.png",
+        "source": "/home/usuario/Descargas/TerminalPosMobile/app/src/main/res/drawable-mdpi/bottonprocess.png"
+    },
+    {
+        "merged": "/home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/build/intermediates/res/merged/debug/drawable-mdpi/mastercard.png",
+        "source": "/home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/src/main/res/drawable-mdpi/mastercard.png"
+    },
+    {
+        "merged": "/home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/build/intermediates/res/merged/debug/drawable-mdpi/ventas.png",
+        "source": "/home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/src/main/res/drawable-mdpi/ventas.png"
+    },
+    {
+        "merged": "/home/usuario/Descargas/TerminalPosMobile/app/build/intermediates/res/merged/debug/drawable-mdpi/diners.png",
+        "source": "/home/usuario/Descargas/TerminalPosMobile/app/src/main/res/drawable-mdpi/diners.png"
+    },
+    {
+        "merged": "/home/usuario/Descargas/TerminalPosMobile/app/build/intermediates/res/merged/debug/drawable-mdpi/logobank.png",
+        "source": "/home/usuario/Descargas/TerminalPosMobile/app/src/main/res/drawable-mdpi/logobank.png"
+    },
+    {
+        "merged": "/home/usuario/Descargas/TerminalPosMobile/app/build/intermediates/res/merged/debug/drawable-mdpi/ventas.png",
+        "source": "/home/usuario/Descargas/TerminalPosMobile/app/src/main/res/drawable-mdpi/ventas.png"
+    },
+    {
+        "merged": "/home/usuario/Descargas/TerminalPosMobile/app/build/intermediates/res/merged/debug/drawable-mdpi/prueba_login.png",
+        "source": "/home/usuario/Descargas/TerminalPosMobile/app/src/main/res/drawable-mdpi/prueba_login.png"
+    },
+    {
+        "merged": "/home/usuario/Descargas/TerminalPosMobile/app/build/intermediates/res/merged/debug/drawable-mdpi/dollar.png",
+        "source": "/home/usuario/Descargas/TerminalPosMobile/app/src/main/res/drawable-mdpi/dollar.png"
+    },
+    {
+        "merged": "/home/usuario/Descargas/TerminalPosMobile/app/build/intermediates/res/merged/debug/drawable-mdpi/welcome.png",
+        "source": "/home/usuario/Descargas/TerminalPosMobile/app/src/main/res/drawable-mdpi/welcome.png"
+    },
+    {
+        "merged": "/home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/build/intermediates/res/merged/debug/drawable-mdpi/cierres.png",
+        "source": "/home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/src/main/res/drawable-mdpi/cierres.png"
+    },
+    {
+        "merged": "/home/usuario/Descargas/TerminalPosMobile/app/build/intermediates/res/merged/debug/drawable-mdpi/creditcards.png",
+        "source": "/home/usuario/Descargas/TerminalPosMobile/app/src/main/res/drawable-mdpi/creditcards.png"
+    },
+    {
+        "merged": "/home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/build/intermediates/res/merged/debug/drawable-mdpi/ic_launcher.png",
+        "source": "/home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/src/main/res/drawable-mdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/build/intermediates/res/merged/debug/drawable-mdpi/opciones.png",
+        "source": "/home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/src/main/res/drawable-mdpi/opciones.png"
+    },
+    {
+        "merged": "/home/usuario/Descargas/TerminalPosMobile/app/build/intermediates/res/merged/debug/drawable-mdpi/pin_icon.png",
+        "source": "/home/usuario/Descargas/TerminalPosMobile/app/src/main/res/drawable-mdpi/pin_icon.png"
     },
     {
         "merged": "/home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/build/intermediates/res/merged/debug/drawable-mdpi/icon_user.png",
@@ -32,36 +84,64 @@
         "source": "/home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/src/main/res/drawable-mdpi/icon_key.png"
     },
     {
-        "merged": "/home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/build/intermediates/res/merged/debug/drawable-mdpi/visa.png",
-        "source": "/home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/src/main/res/drawable-mdpi/visa.png"
+        "merged": "/home/usuario/Descargas/TerminalPosMobile/app/build/intermediates/res/merged/debug/drawable-mdpi/cierres.png",
+        "source": "/home/usuario/Descargas/TerminalPosMobile/app/src/main/res/drawable-mdpi/cierres.png"
     },
     {
         "merged": "/home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/build/intermediates/res/merged/debug/drawable-mdpi/topup.png",
         "source": "/home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/src/main/res/drawable-mdpi/topup.png"
     },
     {
+        "merged": "/home/usuario/Descargas/TerminalPosMobile/app/build/intermediates/res/merged/debug/drawable-mdpi/ameexpress.png",
+        "source": "/home/usuario/Descargas/TerminalPosMobile/app/src/main/res/drawable-mdpi/ameexpress.png"
+    },
+    {
         "merged": "/home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/build/intermediates/res/merged/debug/drawable-mdpi/prueba_login.png",
         "source": "/home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/src/main/res/drawable-mdpi/prueba_login.png"
     },
     {
-        "merged": "/home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/build/intermediates/res/merged/debug/drawable-mdpi/mastercard.png",
-        "source": "/home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/src/main/res/drawable-mdpi/mastercard.png"
+        "merged": "/home/usuario/Descargas/TerminalPosMobile/app/build/intermediates/res/merged/debug/drawable-mdpi/icon_key.png",
+        "source": "/home/usuario/Descargas/TerminalPosMobile/app/src/main/res/drawable-mdpi/icon_key.png"
     },
     {
-        "merged": "/home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/build/intermediates/res/merged/debug/drawable-mdpi/ventas.png",
-        "source": "/home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/src/main/res/drawable-mdpi/ventas.png"
+        "merged": "/home/usuario/Descargas/TerminalPosMobile/app/build/intermediates/res/merged/debug/drawable-mdpi/opciones.png",
+        "source": "/home/usuario/Descargas/TerminalPosMobile/app/src/main/res/drawable-mdpi/opciones.png"
+    },
+    {
+        "merged": "/home/usuario/Descargas/TerminalPosMobile/app/build/intermediates/res/merged/debug/drawable-mdpi/corresponsalia.png",
+        "source": "/home/usuario/Descargas/TerminalPosMobile/app/src/main/res/drawable-mdpi/corresponsalia.png"
+    },
+    {
+        "merged": "/home/usuario/Descargas/TerminalPosMobile/app/build/intermediates/res/merged/debug/drawable-mdpi/alodiga_logo.png",
+        "source": "/home/usuario/Descargas/TerminalPosMobile/app/src/main/res/drawable-mdpi/alodiga_logo.png"
     },
     {
         "merged": "/home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/build/intermediates/res/merged/debug/drawable-mdpi/logobank.png",
         "source": "/home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/src/main/res/drawable-mdpi/logobank.png"
     },
     {
+        "merged": "/home/usuario/Descargas/TerminalPosMobile/app/build/intermediates/res/merged/debug/drawable-mdpi/prueba_login_2.png",
+        "source": "/home/usuario/Descargas/TerminalPosMobile/app/src/main/res/drawable-mdpi/prueba_login_2.png"
+    },
+    {
         "merged": "/home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/build/intermediates/res/merged/debug/drawable-mdpi/bottonprocess.png",
         "source": "/home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/src/main/res/drawable-mdpi/bottonprocess.png"
     },
     {
+        "merged": "/home/usuario/Descargas/TerminalPosMobile/app/build/intermediates/res/merged/debug/drawable-mdpi/icon_iphone.png",
+        "source": "/home/usuario/Descargas/TerminalPosMobile/app/src/main/res/drawable-mdpi/icon_iphone.png"
+    },
+    {
         "merged": "/home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/build/intermediates/res/merged/debug/drawable-mdpi/corresponsalia.png",
         "source": "/home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/src/main/res/drawable-mdpi/corresponsalia.png"
+    },
+    {
+        "merged": "/home/usuario/Descargas/TerminalPosMobile/app/build/intermediates/res/merged/debug/drawable-mdpi/mastercard.png",
+        "source": "/home/usuario/Descargas/TerminalPosMobile/app/src/main/res/drawable-mdpi/mastercard.png"
+    },
+    {
+        "merged": "/home/usuario/Descargas/TerminalPosMobile/app/build/intermediates/res/merged/debug/drawable-mdpi/ic_drawer.png",
+        "source": "/home/usuario/Descargas/TerminalPosMobile/app/src/main/res/drawable-mdpi/ic_drawer.png"
     },
     {
         "merged": "/home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/build/intermediates/res/merged/debug/drawable-mdpi/alodiga_logo.png",
@@ -72,6 +152,10 @@
         "source": "/home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/src/main/res/drawable-mdpi/diners.png"
     },
     {
+        "merged": "/home/usuario/Descargas/TerminalPosMobile/app/build/intermediates/res/merged/debug/drawable-mdpi/topup.png",
+        "source": "/home/usuario/Descargas/TerminalPosMobile/app/src/main/res/drawable-mdpi/topup.png"
+    },
+    {
         "merged": "/home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/build/intermediates/res/merged/debug/drawable-mdpi/icon_iphone.png",
         "source": "/home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/src/main/res/drawable-mdpi/icon_iphone.png"
     },
@@ -80,12 +164,20 @@
         "source": "/home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/src/main/res/drawable-mdpi/pin_icon.png"
     },
     {
+        "merged": "/home/usuario/Descargas/TerminalPosMobile/app/build/intermediates/res/merged/debug/drawable-mdpi/ic_launcher.png",
+        "source": "/home/usuario/Descargas/TerminalPosMobile/app/src/main/res/drawable-mdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/home/usuario/Descargas/TerminalPosMobile/app/build/intermediates/res/merged/debug/drawable-mdpi/icon_user.png",
+        "source": "/home/usuario/Descargas/TerminalPosMobile/app/src/main/res/drawable-mdpi/icon_user.png"
+    },
+    {
         "merged": "/home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/build/intermediates/res/merged/debug/drawable-mdpi/prueba_login_2.png",
         "source": "/home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/src/main/res/drawable-mdpi/prueba_login_2.png"
     },
     {
-        "merged": "/home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/build/intermediates/res/merged/debug/drawable-mdpi/cierres.png",
-        "source": "/home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/src/main/res/drawable-mdpi/cierres.png"
+        "merged": "/home/usuario/Descargas/TerminalPosMobile/app/build/intermediates/res/merged/debug/drawable-mdpi/visa.png",
+        "source": "/home/usuario/Descargas/TerminalPosMobile/app/src/main/res/drawable-mdpi/visa.png"
     },
     {
         "merged": "/home/usuario/Descargas/Alopos-Ultimo-Prototipo/app/build/intermediates/res/merged/debug/drawable-mdpi/dollar.png",
