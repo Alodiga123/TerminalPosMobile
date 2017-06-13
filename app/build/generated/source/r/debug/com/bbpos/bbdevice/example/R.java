@@ -241,21 +241,22 @@ public final class R {
         public static final int connection_dialog=0x7f03000c;
         public static final int control_led_dialog=0x7f03000d;
         public static final int data_dialog=0x7f03000e;
-        public static final int general_string_and_radio_box_dialog=0x7f03000f;
-        public static final int general_string_input_dialog=0x7f030010;
-        public static final int gprs_dialog=0x7f030011;
-        public static final int index_activity=0x7f030012;
-        public static final int inject_mk=0x7f030013;
-        public static final int internet_dialog=0x7f030014;
-        public static final int login_activity=0x7f030015;
-        public static final int main_fragment=0x7f030016;
-        public static final int max_attemps_dialog=0x7f030017;
-        public static final int my_spinner_item=0x7f030018;
-        public static final int pin_dialog=0x7f030019;
-        public static final int refer_process_dialog=0x7f03001a;
-        public static final int splash_activity=0x7f03001b;
-        public static final int verify_id_dialog=0x7f03001c;
-        public static final int wifi_dialog=0x7f03001d;
+        public static final int fragment_mail_cid=0x7f03000f;
+        public static final int general_string_and_radio_box_dialog=0x7f030010;
+        public static final int general_string_input_dialog=0x7f030011;
+        public static final int gprs_dialog=0x7f030012;
+        public static final int index_activity=0x7f030013;
+        public static final int inject_mk=0x7f030014;
+        public static final int internet_dialog=0x7f030015;
+        public static final int login_activity=0x7f030016;
+        public static final int main_fragment=0x7f030017;
+        public static final int max_attemps_dialog=0x7f030018;
+        public static final int my_spinner_item=0x7f030019;
+        public static final int pin_dialog=0x7f03001a;
+        public static final int refer_process_dialog=0x7f03001b;
+        public static final int splash_activity=0x7f03001c;
+        public static final int verify_id_dialog=0x7f03001d;
+        public static final int wifi_dialog=0x7f03001e;
     }
     public static final class menu {
         public static final int activity_main=0x7f090000;
@@ -446,6 +447,7 @@ public final class R {
         public static final int gprs=0x7f0600c4;
         public static final int gprs_wifi=0x7f0600c5;
         public static final int hardware_version=0x7f0600c6;
+        public static final int hello_blank_fragment=0x7f0601f4;
         public static final int icc_card_inserted=0x7f0600c7;
         public static final int incorrect_pin=0x7f0600c8;
         public static final int index=0x7f0600c9;
@@ -769,15 +771,8 @@ public final class R {
     public static final class style {
         /**  API 11 theme customizations can go here. 
  API 14 theme customizations can go here. 
-
-            Theme customizations available in newer API levels can go in
-            res/values-vXX/styles.xml, while customizations related to
-            backward-compatibility can go here.
-        
          */
         public static final int AppBaseTheme=0x7f080000;
-        /**  All customizations that are NOT specific to a particular API-level can go here. 
-         */
         public static final int AppTheme=0x7f080001;
         public static final int DefaultButtonText=0x7f080002;
     }

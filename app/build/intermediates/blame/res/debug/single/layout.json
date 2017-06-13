@@ -136,6 +136,10 @@
         "source": "/home/usuario/Descargas/TerminalPosMobile/app/src/main/res/layout/splash_activity.xml"
     },
     {
+        "merged": "/home/usuario/Descargas/TerminalPosMobile/app/build/intermediates/res/merged/debug/layout/fragment_mail_cid.xml",
+        "source": "/home/usuario/Descargas/TerminalPosMobile/app/src/main/res/layout/fragment_mail_cid.xml"
+    },
+    {
         "merged": "/home/usuario/Descargas/TerminalPosMobile/app/build/intermediates/res/merged/debug/layout/general_string_and_radio_box_dialog.xml",
         "source": "/home/usuario/Descargas/TerminalPosMobile/app/src/main/res/layout/general_string_and_radio_box_dialog.xml"
     },

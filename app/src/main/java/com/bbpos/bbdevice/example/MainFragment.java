@@ -4,6 +4,7 @@ package com.bbpos.bbdevice.example;
  * Created by usuario on 13/06/17.
  */
 
+import android.app.Activity;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.os.Bundle;
@@ -26,12 +27,14 @@ public class MainFragment extends Fragment{
     View rootView =null;
 
 
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
         rootView = inflater.inflate(R.layout.main_fragment,container,false);
         final Button startButton = (Button) rootView.findViewById(R.id.startButton);
+        final BaseActivity activity = (BaseActivity) getActivity();
 
         startButton.setOnClickListener(new View.OnClickListener() {
 
@@ -59,12 +62,12 @@ public class MainFragment extends Fragment{
                             }
 
                             try {
-                               // promptForEmail();
+                               activity.promptForEmail();
                             } catch (Exception e) {
                                 e.printStackTrace();
                             }
-                            //  promptForStartEmv();
-                            //promptForCheckCard();
+
+
                         }
                     }
                 }

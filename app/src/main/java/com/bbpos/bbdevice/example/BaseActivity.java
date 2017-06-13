@@ -740,7 +740,7 @@ public class BaseActivity extends FragmentActivity {
 	
 	public void promptForStartEmv() {
 		dismissDialog();
-		checkCardMode=CheckCardMode.SWIPE_OR_INSERT;
+		checkCardMode = CheckCardMode.SWIPE_OR_INSERT;
 		startEmv();
 		/*dialog = new Dialog(currentActivity);
 		dialog.setContentView(R.layout.check_card_mode_dialog);

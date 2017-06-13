@@ -183,6 +183,7 @@
     <string name="gprs">GPRS</string>
     <string name="gprs_wifi">GPRS / WIFI</string>
     <string name="hardware_version">Hardware Version: </string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="icc_card_inserted">ICC Card Inserted</string>
     <string name="incorrect_pin">Incorrect PIN</string>
     <string name="index">Index:</string>
@@ -503,14 +504,10 @@
     <string name="wrong_printer_cmd">Wrong printer command</string>
     <string name="zero_values">Input are zero values.</string>
     <style name="AppBaseTheme" parent="android:Theme.Light">
-        <!--
-            Theme customizations available in newer API levels can go in
-            res/values-vXX/styles.xml, while customizations related to
-            backward-compatibility can go here.
-        -->
+        
     </style>
     <style name="AppTheme" parent="AppBaseTheme">
-        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+        
     </style>
     <style name="DefaultButtonText">
         <item name="android:layout_width">fill_parent</item>
