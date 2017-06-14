@@ -21,7 +21,7 @@ public class IndexActivity extends Activity {
         Intent intent = getIntent();
         //final String token = intent.getStringExtra("token");
 
-/*comentario de prueba*/
+/*comentario de prueba */
         final Button Sales=(Button) findViewById(R.id.btnVentas);
         Sales.setOnClickListener(new Button.OnClickListener() {
             @Override
