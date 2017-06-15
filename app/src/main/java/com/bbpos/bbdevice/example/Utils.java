@@ -2,6 +2,9 @@ package com.bbpos.bbdevice.example;
 
 import android.content.Context;
 
+import org.ksoap2.serialization.PropertyInfo;
+import org.ksoap2.serialization.SoapObject;
+
 import java.security.MessageDigest;
 
 public class Utils {
@@ -61,5 +64,33 @@ public class Utils {
         }
         return accesskey;
     }
+
+
+
+    /**
+     * This method is used to construct the service request
+     * @param fieldInformation Object containing the parameters (name, type, encryptedString)
+     *                                 String name: field name
+     *                           STRING_CLASS type: data type
+     *                      String encryptedString: encrypted parameter
+     * @param nameSpeace - Namespace of the Webservice - can be found in WSDL
+     * @param methodName - Name of the WSDL method to use
+     * @return Return the request to consume the service
+     */
+    public static SoapObject buildRequest(EncryptedParameter[] fieldInformation, String nameSpeace, String methodName){
+
+        PropertyInfo propertyInfo = new PropertyInfo();
+        SoapObject request = new SoapObject(nameSpeace, methodName);
+
+        for (int i=0;i < fieldInformation.length;i++)
+        {
+            propertyInfo.name = fieldInformation[i].name;
+            propertyInfo.type = fieldInformation[i].type;
+
+            request.addProperty(propertyInfo, fieldInformation[i].encryptedString);
+        }
+        return request;
+    }
+
 
 }
