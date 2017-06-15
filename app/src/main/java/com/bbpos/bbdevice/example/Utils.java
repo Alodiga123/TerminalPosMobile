@@ -126,5 +126,4 @@ public class Utils {
                 android.provider.Settings.Secure.ANDROID_ID);
         return androidId;
     }
-
 }
