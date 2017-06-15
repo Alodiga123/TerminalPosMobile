@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
+    <string name="closing_message">关闭</string>
+    <string name="progress_message">事务处理...</string>
+    <string name="close_button_message">要开始关闭过程中按下一个按钮</string>
+    <string name="close_button_recommendation">提交本次交易后，建议不进行其他操作</string>
+    <string name="test_configuration">测试设置</string>
     <string name="app_name">BBDevice-范例-3.2.0</string>
     <string name="please_insert_card">请插卡</string>
     <string name="please_swipe_card">请刷卡</string>

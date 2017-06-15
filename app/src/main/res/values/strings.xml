@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
+    <string name="closing_message">Close</string>
+    <string name="progress_message">Processing transaction...</string>
+    <string name="close_button_message">To start the closing process press the next button</string>
+    <string name="close_button_recommendation">Once the transaction is sent, it is recommended not to carry out another transaction</string>
+    <string name="test_configuration">Test Configuration</string>
+    <string name="loading">loading</string>
     <string name="app_name">BBDevice-Example-3.2.0</string>
     <string name="please_insert_card">Please insert card</string>
     <string name="please_swipe_card">Please swipe card</string>
