@@ -23,8 +23,6 @@ public class Utils {
 		result = "D101" + length + "54" + "02656E" + hexString; 
 		return result;
 	}
-//la prueba
-    //prueba2
 
     public static String sha256(String base) {
         try{
@@ -117,5 +115,16 @@ public class Utils {
         return response;
     }
 
+    /**
+     * Method that searches the device ID
+     * @param context
+     * @return an String with the android Id
+     */
+    public static String getAndroidId(Context context)
+    {
+        final String androidId = android.provider.Settings.Secure.getString(context.getContentResolver(),
+                android.provider.Settings.Secure.ANDROID_ID);
+        return androidId;
+    }
 
 }
