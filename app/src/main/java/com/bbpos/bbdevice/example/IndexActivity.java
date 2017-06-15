@@ -32,4 +32,10 @@ public class IndexActivity extends Activity {
             }
         });
     }
+
+
+    public void sendCierre(View view){
+        Intent intent = new Intent(this, ExitActivity.class);
+        startActivity(intent);
+    }
 }
