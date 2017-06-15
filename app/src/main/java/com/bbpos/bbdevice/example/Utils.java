@@ -11,6 +11,7 @@ import org.ksoap2.transport.HttpTransportSE;
 import java.security.MessageDigest;
 
 public class Utils {
+
 	protected static String encodeNdefFormat(String hexString) {
 		String result = "";
 		String length = Integer.toHexString(hexString.length() + 3);
@@ -42,12 +43,11 @@ public class Utils {
         }
     }
 
-    public String getkey(Context c) throws Exception , NullPointerException {
+    // TODO: 15/06/17 verificar uso del parametro context en caso de no ser utilizado eliminarlo como entrada del metodo
+
+    public static String getkey(Context context, String deviceId) throws Exception , NullPointerException {
         String accesskey = "";
         try {
-            String deviceId = android.provider.Settings.Secure.getString(c.getContentResolver(),
-                    android.provider.Settings.Secure.ANDROID_ID);
-
             deviceId=sha256(deviceId);
             //Implement
             String macAddres = "2F:11:2F:CF:0F:DC";
