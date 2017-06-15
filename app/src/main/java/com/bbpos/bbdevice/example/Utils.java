@@ -1,10 +1,13 @@
 package com.bbpos.bbdevice.example;
 
 import android.content.Context;
-
+import com.alodiga.security.encryption.S3cur1ty3Cryt3r;
+import org.ksoap2.SoapEnvelope;
 import org.ksoap2.serialization.PropertyInfo;
 import org.ksoap2.serialization.SoapObject;
-
+import org.ksoap2.serialization.SoapPrimitive;
+import org.ksoap2.serialization.SoapSerializationEnvelope;
+import org.ksoap2.transport.HttpTransportSE;
 import java.security.MessageDigest;
 
 public class Utils {
@@ -65,8 +68,6 @@ public class Utils {
         return accesskey;
     }
 
-
-
     /**
      * This method is used to construct the service request
      * @param fieldInformation Object containing the parameters (name, type, encryptedString)
@@ -77,8 +78,8 @@ public class Utils {
      * @param methodName - Name of the WSDL method to use
      * @return Return the request to consume the service
      */
-    public static SoapObject buildRequest(EncryptedParameter[] fieldInformation, String nameSpeace, String methodName){
-
+    public static SoapObject buildRequest(EncryptedParameter[] fieldInformation, String nameSpeace, String methodName)
+    {
         PropertyInfo propertyInfo = new PropertyInfo();
         SoapObject request = new SoapObject(nameSpeace, methodName);
 
@@ -90,6 +91,30 @@ public class Utils {
             request.addProperty(propertyInfo, fieldInformation[i].encryptedString);
         }
         return request;
+    }
+
+    /**
+     * Method used to make requests to services
+     * @param request - SoapObject type parameter that contains the service's input parameters
+     * @param url - String parameter that indicates the location of the server
+     * @param key - String parameter used to decrypt the transaction response
+     * @return - Returns a parameter of type String with the response of the service
+     * @throws Exception
+     */
+    public static String  processPetition(SoapObject request, String url, String key) throws Exception
+    {
+        String soapAction = " ";
+        SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(SoapEnvelope.VER11);
+        envelope.setOutputSoapObject(request);
+
+        HttpTransportSE androidHttpTransport = new HttpTransportSE(url.trim());
+        androidHttpTransport.call(soapAction, envelope);
+        SoapPrimitive resultsRequestSOAP = (SoapPrimitive) envelope.getResponse();
+
+        final String value = resultsRequestSOAP.toString();
+        final String response = S3cur1ty3Cryt3r.aloDesencrypter(value,key,null);
+
+        return response;
     }
 
 
