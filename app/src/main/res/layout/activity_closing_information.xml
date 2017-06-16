@@ -42,7 +42,7 @@
                 android:gravity="right"/>
             <TextView
                 android:padding="3dip"
-                android:id="@+id/txtLote"
+                android:id="@+id/txtLot"
                 />
         </TableRow>
 
@@ -51,11 +51,11 @@
                 android:gravity="right"
                 android:padding="3dip"
                 android:textStyle="bold"
-                android:text="TOTAL APROB" />
+                android:text="TRANSACCIONES APROBADAS" />
 
             <TextView
                 android:padding="3dip"
-                android:id="@+id/txtAprobado"
+                android:id="@+id/txtTotalApproved"
                 />
         </TableRow>
 
@@ -64,10 +64,10 @@
                 android:gravity="right"
                 android:padding="3dip"
                 android:textStyle="bold"
-                android:text="TOTAL TRANSAC ENVIADAS" />
+                android:text="TRANSACCIONES ENVIADAS" />
             <TextView
                 android:padding="3dip"
-                android:id="@+id/txtTransaccionEnviada"/>
+                android:id="@+id/txtSentTransactions"/>
         </TableRow>
 
         <TableRow>
@@ -79,18 +79,18 @@
 
             <TextView
                 android:padding="3dip"
-                android:id="@+id/txtMontoCierre"/>
+                android:id="@+id/txtClosingAmount"/>
         </TableRow>
 
         <TextView
             android:padding="3dip"
             android:gravity="center"
-            android:id="@+id/txtFecha"/>
+            android:id="@+id/txtDate"/>
 
         <TextView
             android:padding="3dip"
             android:gravity="center"
-            android:id="@+id/txtHora"
+            android:id="@+id/txtHour"
             />
 
 
