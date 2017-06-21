@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="closing_message">Close</string>
+    <string name="validate_password_change_capital_letter">The password must have at least one uppercase.</string>
+    <string name="validate_password_change_lowercase_letter">The password must have at least one lower case.</string>
+    <string name="validate_password_change_number">The password must have at least one number.</string>
+    <string name="validate_password_change_special_character">The password must have at least one of the following characters. \n # ? ! @ $ % ^ &amp; * -  </string>
+    <string name="validate_password_change_number_characters">The password must be at least 8 characters.</string>
+    <string name="required_fields">One or more fields are empty.</string>
+    <string name="toast_different_passwords">Passwords do not match. Please try again</string>
     <string name="progress_message">Processing transaction...</string>
     <string name="close_button_message">To start the closing process press the next button</string>
     <string name="close_button_recommendation">Once the transaction is sent, it is recommended not to carry out another transaction</string>
