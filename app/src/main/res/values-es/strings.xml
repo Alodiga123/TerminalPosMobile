@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="closing_message">Cerrar</string>
+    <string name="validate_password_change_capital_letter">La clave debe poseer al menos una mayúscula</string>
+    <string name="validate_password_change_lowercase_letter">La clave debe poseer al menos una minúscula</string>
+    <string name="validate_password_change_number">La clave debe poseer al menos un numero</string>
+    <string name="validate_password_change_special_character">La clave debe poseer al menos uno de los siguientes caracteres. \n # ? ! @ $ % ^ &amp; * -  </string>
+    <string name="validate_password_change_number_characters">La clave debe poseer como mínimo 8 caracteres</string>
+    <string name="required_fields">Uno o mas campos se encuentran vacios.</string>
+    <string name="toast_different_passwords">Las contraseñas no coinciden. Porfavor intente nuevamente</string>
     <string name="progress_message">Procesando Transacción...</string>
     <string name="close_button_message">Para iniciar el proceso de cierre presione el siguiente botón</string>
     <string name="close_button_recommendation">Una vez enviada la transacción se recomienda no realizar otra operación</string>
