@@ -1,18 +1,32 @@
 package com.bbpos.bbdevice.example;
 
 import android.content.Context;
-import com.alodiga.security.encryption.S3cur1ty3Cryt3r;
+import android.graphics.Color;
+import android.support.annotation.NonNull;
+import android.view.Gravity;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import android.widget.Toast;
 import org.ksoap2.SoapEnvelope;
 import org.ksoap2.serialization.PropertyInfo;
 import org.ksoap2.serialization.SoapObject;
-import org.ksoap2.serialization.SoapPrimitive;
 import org.ksoap2.serialization.SoapSerializationEnvelope;
 import org.ksoap2.transport.HttpTransportSE;
 import java.security.MessageDigest;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Utils {
 
-	protected static String encodeNdefFormat(String hexString) {
+    private static final String CAPITAL_LETTER = "(?=.*?[A-Z])";
+    private static final String LOWERCASE_LETTER = "(?=.*?[a-z])";
+    private static final String NUMBER = "(?=.*?[0-9])";
+    private static final String SPECIAL_CHARACTER = "(?=.*?[#?!@$%^&*-])";
+    private static final String NUMBER_OF_CHARACTERS = ".{8,}";
+    private static final int TEXT_SIZE = 15;
+
+    protected static String encodeNdefFormat(String hexString) {
 		String result = "";
 		String length = Integer.toHexString(hexString.length() + 3);
 		while (length.length() % 2 != 0) {
@@ -43,9 +57,7 @@ public class Utils {
         }
     }
 
-    // TODO: 15/06/17 verificar uso del parametro context en caso de no ser utilizado eliminarlo como entrada del metodo
-
-    public static String getkey(Context context, String deviceId) throws Exception , NullPointerException {
+    public static String getkey(String deviceId) throws Exception , NullPointerException {
         String accesskey = "";
         try {
             deviceId=sha256(deviceId);
@@ -102,17 +114,23 @@ public class Utils {
     public static String  processPetition(SoapObject request, String url, String key) throws Exception
     {
         String soapAction = " ";
+        final String value;
+
         SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(SoapEnvelope.VER11);
         envelope.setOutputSoapObject(request);
 
         HttpTransportSE androidHttpTransport = new HttpTransportSE(url.trim());
-        androidHttpTransport.call(soapAction, envelope);
-        SoapPrimitive resultsRequestSOAP = (SoapPrimitive) envelope.getResponse();
 
-        final String value = resultsRequestSOAP.toString();
-        final String response = S3cur1ty3Cryt3r.aloDesencrypter(value,key,null);
+        if (!(envelope == null && soapAction == null && envelope.equals("")  && soapAction.equals("") ))
+        {
+           androidHttpTransport.call(soapAction, envelope);
+        }
+             // SoapPrimitive resultsRequestSOAP = (SoapPrimitive) envelope.getResponse();
+        Object resultsRequestSOAP = (Object) envelope.getResponse();
 
-        return response;
+        value = resultsRequestSOAP.toString();
+            //  final String response = S3cur1ty3Cryt3r.aloDesencrypter(value,key,null);
+        return value;
     }
 
     /**
@@ -120,10 +138,80 @@ public class Utils {
      * @param context
      * @return an String with the android Id
      */
-    public static String getAndroidId(Context context)
+    public static String getAndroidId(@NonNull Context context)
     {
         final String androidId = android.provider.Settings.Secure.getString(context.getContentResolver(),
                 android.provider.Settings.Secure.ANDROID_ID);
         return androidId;
     }
+
+    //TODO - Documentar metodo "createToast"
+    public static void createToast(@NonNull Context context, int text)
+    {
+        LinearLayout layoutToast=new LinearLayout(context);
+      //  layoutToast.setBackgroundResource(R.color.Toast_color);
+        layoutToast.setBackgroundResource(R.color.Toast_background_color_error);
+        TextView textViewToast=new TextView(context);
+        // set the TextView properties like color, size etc
+        textViewToast.setTextColor(Color.parseColor("#a00037"));
+        textViewToast.setTextSize(TEXT_SIZE);
+        textViewToast.setGravity(Gravity.CENTER_VERTICAL);
+        // set the text you want to show in  Toast
+        textViewToast.setText(text);
+        textViewToast.setPadding(10,10,5,10);
+        ImageView imageError=new ImageView(context);
+        // give the drawble resource for the ImageView
+        imageError.setImageResource(R.drawable.error);
+        //TODO - verificar que la imagen tenga las dimensiones correctas para eliminar esta modificacion de su tamaño
+        LinearLayout.LayoutParams params= new LinearLayout.LayoutParams(80,80);
+        imageError.setLayoutParams(params);
+        // add both the Views TextView and ImageView in layout
+        layoutToast.addView(imageError);
+        layoutToast.addView(textViewToast);
+        Toast toast=new Toast(context); //context is object of Context write "this" if you are an Activity
+        // Set The layout as Toast View
+        toast.setView(layoutToast);
+        // Position you toast here toast position is 50 dp from bottom you can give any integral value
+        toast.setGravity(Gravity.TOP, 0, 80);
+        toast.setDuration(Toast.LENGTH_LONG);
+        toast.show();
+    }
+
+    //TODO - Documentar metodo "validatePassword"
+    public static int validatePassword(String newPassword, String confirmPassword)
+    {
+        Pattern capitalLetter = Pattern.compile(CAPITAL_LETTER);
+        Matcher capLet = capitalLetter.matcher(newPassword);
+        Pattern lowerLetter = Pattern.compile(LOWERCASE_LETTER);
+        Matcher lowLet = lowerLetter.matcher(newPassword);
+        Pattern number = Pattern.compile(NUMBER);
+        Matcher nb = number.matcher(newPassword);
+        Pattern specialCharacter = Pattern.compile(SPECIAL_CHARACTER);
+        Matcher spChar = specialCharacter.matcher(newPassword);
+        Pattern numberCharacters = Pattern.compile(NUMBER_OF_CHARACTERS);
+        Matcher nmbChar = numberCharacters.matcher(newPassword);
+
+        if(!capLet.lookingAt())
+        {
+            return R.string.validate_password_change_capital_letter;
+        }else if(!lowLet.lookingAt())
+        {
+            return R.string.validate_password_change_lowercase_letter;
+        }else if(!nb.lookingAt())
+        {
+            return R.string.validate_password_change_number;
+        }else if(!spChar.lookingAt())
+        {
+            return R.string.validate_password_change_special_character;
+        }else if(!nmbChar.lookingAt())
+        {
+            return R.string.validate_password_change_number_characters;
+        }else if(!newPassword.equals(confirmPassword))
+        {
+            return R.string.toast_different_passwords;
+        }
+
+        return 0;
+    }
+
 }
