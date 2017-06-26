@@ -18,12 +18,29 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Utils {
-
+    /**
+     * CAPITAL_LETTER: Constant used to detect the existence of a capital letter in a text string
+     */
     private static final String CAPITAL_LETTER = "(?=.*?[A-Z])";
+    /**
+     * LOWERCASE_LETTER: Constant used to detect the existence of a lowercase letter in a text string
+     */
     private static final String LOWERCASE_LETTER = "(?=.*?[a-z])";
+    /**
+     * NUMBER: Constant used to detect the existence of a number in a text string
+     */
     private static final String NUMBER = "(?=.*?[0-9])";
+    /**
+     * SPECIAL_CHARACTER: Constant used to detect the existence of a special character in a text string
+     */
     private static final String SPECIAL_CHARACTER = "(?=.*?[#?!@$%^&*-])";
+    /**
+     * NUMBER_OF_CHARACTERS: Constant used to detect the number of characters allowed in a text string
+     */
     private static final String NUMBER_OF_CHARACTERS = ".{8,}";
+    /**
+     * TEXT_SIZE: Constant used to indicate letter size
+     */
     private static final int TEXT_SIZE = 15;
 
     protected static String encodeNdefFormat(String hexString) {
@@ -118,7 +135,6 @@ public class Utils {
 
         SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(SoapEnvelope.VER11);
         envelope.setOutputSoapObject(request);
-
         HttpTransportSE androidHttpTransport = new HttpTransportSE(url.trim());
 
         if (!(envelope == null && soapAction == null && envelope.equals("")  && soapAction.equals("") ))
@@ -145,8 +161,12 @@ public class Utils {
         return androidId;
     }
 
-    //TODO - Documentar metodo "createToast"
-    public static void createToast(@NonNull Context context, int text)
+    /**
+     * Method used to generate a toast that indicates the errors committed.
+     * @param context
+     * @param text : Integer parameter containing the error to be displayed.
+     */
+    public static void createToast(@NonNull Context context, @NonNull int text)
     {
         LinearLayout layoutToast=new LinearLayout(context);
       //  layoutToast.setBackgroundResource(R.color.Toast_color);
@@ -177,8 +197,14 @@ public class Utils {
         toast.show();
     }
 
-    //TODO - Documentar metodo "validatePassword"
-    public static int validatePassword(String newPassword, String confirmPassword)
+    /**
+     *Method that indicates all the conditions that a password must fulfill to be valid for the system.
+     * @param newPassword :  New password that the user wants to use
+     * @param confirmPassword :Confirmation of the new password
+     * @return Returns an integer that contains the condition that the password must meet to be valid.
+     * If all conditions are met returns a zero
+     */
+    public static int validatePassword(@NonNull String newPassword, @NonNull String confirmPassword)
     {
         Pattern capitalLetter = Pattern.compile(CAPITAL_LETTER);
         Matcher capLet = capitalLetter.matcher(newPassword);
@@ -210,8 +236,71 @@ public class Utils {
         {
             return R.string.toast_different_passwords;
         }
-
         return 0;
+    }
+
+    /**
+     * Method used to increase the progress bar, depending on the conditions
+     * used to create a valid key for the system
+     * @param newPassword : New password that the user wants to use
+     * @param confirmPassword : Confirmation of the new password
+     * @return Returns an integer that indicates the amount of conditions the
+     * user has fulfilled to change the password
+     */
+    public static int progressBar(String newPassword, String confirmPassword)
+    {
+        Pattern capitalLetter = Pattern.compile(CAPITAL_LETTER);
+        Matcher capLet = capitalLetter.matcher(newPassword);
+        Pattern lowerLetter = Pattern.compile(LOWERCASE_LETTER);
+        Matcher lowLet = lowerLetter.matcher(newPassword);
+        Pattern number = Pattern.compile(NUMBER);
+        Matcher nb = number.matcher(newPassword);
+        Pattern specialCharacter = Pattern.compile(SPECIAL_CHARACTER);
+        Matcher spChar = specialCharacter.matcher(newPassword);
+        Pattern numberCharacters = Pattern.compile(NUMBER_OF_CHARACTERS);
+        Matcher nmbChar = numberCharacters.matcher(newPassword);
+        int equis = 0;
+
+        boolean[]var = new boolean[]{false,false,false,false,false,false};
+
+        if(!newPassword.equals(""))
+        {
+            if(capLet.lookingAt())
+            {
+                var[0]= true;
+            }
+            if(lowLet.lookingAt())
+            {
+                var[1]= true;
+            }
+            if(nb.lookingAt())
+            {
+                var[2]= true;
+            }
+            if(spChar.lookingAt())
+            {
+                var[3]= true;
+            }
+            if(nmbChar.lookingAt())
+            {
+                var[4]= true;
+            }
+            if(newPassword.equals(confirmPassword))
+            {
+                var[5]= true;
+            }
+            for(int i = 0; i< var.length ; i++)
+            {
+                if(var[i]==true)
+                {
+                    equis += 10;
+                }
+            }
+             return equis;
+        }else
+        {
+            return 0;
+        }
     }
 
 }
