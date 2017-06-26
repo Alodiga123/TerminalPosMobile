@@ -43,6 +43,7 @@ public class Utils {
      */
     private static final int TEXT_SIZE = 15;
 
+
     protected static String encodeNdefFormat(String hexString) {
 		String result = "";
 		String length = Integer.toHexString(hexString.length() + 3);
@@ -243,11 +244,10 @@ public class Utils {
      * Method used to increase the progress bar, depending on the conditions
      * used to create a valid key for the system
      * @param newPassword : New password that the user wants to use
-     * @param confirmPassword : Confirmation of the new password
      * @return Returns an integer that indicates the amount of conditions the
      * user has fulfilled to change the password
      */
-    public static int progressBar(String newPassword, String confirmPassword)
+    public static int progressBar(String newPassword)
     {
         Pattern capitalLetter = Pattern.compile(CAPITAL_LETTER);
         Matcher capLet = capitalLetter.matcher(newPassword);
@@ -259,7 +259,7 @@ public class Utils {
         Matcher spChar = specialCharacter.matcher(newPassword);
         Pattern numberCharacters = Pattern.compile(NUMBER_OF_CHARACTERS);
         Matcher nmbChar = numberCharacters.matcher(newPassword);
-        int equis = 0;
+        int progressIndicator = 0;
 
         boolean[]var = new boolean[]{false,false,false,false,false,false};
 
@@ -285,18 +285,14 @@ public class Utils {
             {
                 var[4]= true;
             }
-            if(newPassword.equals(confirmPassword))
-            {
-                var[5]= true;
-            }
             for(int i = 0; i< var.length ; i++)
             {
                 if(var[i]==true)
                 {
-                    equis += 10;
+                    progressIndicator += 10;
                 }
             }
-             return equis;
+             return progressIndicator;
         }else
         {
             return 0;
