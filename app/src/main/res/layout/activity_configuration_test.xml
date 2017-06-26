@@ -1,99 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ClosingInformation">
+    android:layout_height="match_parent">
 
-    <LinearLayout
-        android:layout_width="match_parent"
+
+    <TextView
+        style="@style/TextViewStyle"
+        android:id="@+id/textView2"
+        android:layout_above="@+id/btnConfigure"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:layout_weight=".6">
-        <ImageView
-            android:id="@+id/imageView2"
-            android:layout_width="match_parent"
-            android:layout_height="fill_parent"
-            android:layout_marginLeft="@dimen/activity_horizontal_margin"
-            android:layout_marginRight="@dimen/activity_horizontal_margin"
-            android:layout_marginTop="@dimen/activity_horizontal_margin"
+        android:text="Para validar que toda su configuración es correcta presione el siguiente botón"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="16dp"
+        android:gravity="center"
+        />
 
-            android:src="@drawable/topup"/>
-    </LinearLayout>
-
-    <TableLayout
+    <Button
+        style="@style/ButtonText"
+        android:id="@+id/btnConfigure"
+        android:text="@string/test_configuration"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:onClick="sendClose"
+        />
+    <TextView
+        style="@style/TextViewStyleBold"
+        android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight=".4"
-        android:layout_gravity="center"
-        android:gravity="center_horizontal">
+        android:text="Información :"
+        android:layout_marginBottom="100dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="30dp"
+        />
+    <TextView
+        style="@style/TextViewStyle"
+        android:id="@+id/textView1"
+        android:layout_width="260dp"
+        android:layout_height="wrap_content"
+        android:text="por ahora se cableara info aquí"
+        android:layout_alignTop="@+id/textView3"
+        android:layout_alignLeft="@+id/textView3"
+        android:layout_alignStart="@+id/textView3"
+        android:layout_marginTop="29dp"
+        />
 
-        <TextView
-            android:padding="3dip"
-            android:textStyle="bold"
-            android:textColor="@color/background_button_color"
-            android:text="Transacción procesada exitosamente"
-            android:gravity="center"/>
-        <TableRow>
-            <TextView
-                android:padding="3dip"
-                android:text="LOTE"
-                android:textStyle="bold"
-                android:gravity="right"/>
-            <TextView
-                android:padding="3dip"
-                android:id="@+id/txtLote"
-                />
-        </TableRow>
-
-        <TableRow>
-            <TextView
-                android:gravity="right"
-                android:padding="3dip"
-                android:textStyle="bold"
-                android:text="TOTAL APROB" />
-
-            <TextView
-                android:padding="3dip"
-                android:id="@+id/txtAprobado"
-                />
-        </TableRow>
-
-        <TableRow>
-            <TextView
-                android:gravity="right"
-                android:padding="3dip"
-                android:textStyle="bold"
-                android:text="TOTAL TRANSAC ENVIADAS" />
-            <TextView
-                android:padding="3dip"
-                android:id="@+id/txtTransaccionEnviada"/>
-        </TableRow>
-
-        <TableRow>
-            <TextView
-                android:gravity="right"
-                android:padding="3dip"
-                android:textStyle="bold"
-                android:text="MONTO TOTAL CIERRE" />
-
-            <TextView
-                android:padding="3dip"
-                android:id="@+id/txtMontoCierre"/>
-        </TableRow>
-
-        <TextView
-            android:padding="3dip"
-            android:gravity="center"
-            android:id="@+id/txtFecha"/>
-
-        <TextView
-            android:padding="3dip"
-            android:gravity="center"
-            android:id="@+id/txtHora"
-            />
-
-
-    </TableLayout>
-
-</LinearLayout>
+</RelativeLayout>
