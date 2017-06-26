@@ -3,4 +3,10 @@
     <color name="background_button_color">#1b5e20</color>
     <color name="Text_color">#000a12</color>
     <color name="Text_button_color">#fffde7</color>
+    <color name="Toast_background_color_error">#fce4ec</color>
+    <color name="Toast_text_color_error">#78002e</color>
+    <color name="Toast_background_color_succes">#32cb00</color>
+    <color name="Toast_text_color_succes">#76ff03</color>
+    <color name="Progress_dialog_background">#00B8D4</color>
+    <color name="Progress_dialog">#18FFFF</color>
 </resources>
