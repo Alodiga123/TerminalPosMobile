@@ -8,6 +8,9 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.alodiga.security.encryption.S3cur1ty3Cryt3r;
+
 import org.ksoap2.SoapEnvelope;
 import org.ksoap2.serialization.PropertyInfo;
 import org.ksoap2.serialization.SoapObject;
@@ -108,11 +111,12 @@ public class Utils {
      */
     public static SoapObject buildRequest(EncryptedParameter[] fieldInformation, String nameSpeace, String methodName)
     {
-        PropertyInfo propertyInfo = new PropertyInfo();
+
         SoapObject request = new SoapObject(nameSpeace, methodName);
 
         for (int i=0;i < fieldInformation.length;i++)
         {
+            PropertyInfo propertyInfo = new PropertyInfo();
             propertyInfo.name = fieldInformation[i].name;
             propertyInfo.type = fieldInformation[i].type;
 
@@ -133,6 +137,7 @@ public class Utils {
     {
         String soapAction = " ";
         final String value;
+        String response;
 
         SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(SoapEnvelope.VER11);
         envelope.setOutputSoapObject(request);
@@ -144,11 +149,27 @@ public class Utils {
         }
              // SoapPrimitive resultsRequestSOAP = (SoapPrimitive) envelope.getResponse();
         Object resultsRequestSOAP = (Object) envelope.getResponse();
-
         value = resultsRequestSOAP.toString();
-            //  final String response = S3cur1ty3Cryt3r.aloDesencrypter(value,key,null);
-        return value;
-    }
+
+        /*TODO- Kerwin aqui hay un detalle, cuando la info que llega al "value" no esta encryptada
+        * al llegar a este metodo "S3cur1ty3Cryt3r.aloDesencrypter(value,key,null)" se pierde la informacion;
+        * intente picar el STRING y evaluar su primera posicion pero no quiere hacerlo, cualquier detalle me comentas
+        */
+        String[] var= value.split(",");
+
+        if(var[0].equals(ErrorMessages.TERMINAL_OLD_PASSWORD_NOT_FOUND))
+        {
+            return value;
+        }else if(var[0].equals(ErrorMessages.TERMINAL_REPEATED_PASSWORD))
+        {
+            return value;
+        }else
+        {
+            response = S3cur1ty3Cryt3r.aloDesencrypter(value,key,null);
+            return response;
+
+        }
+     }
 
     /**
      * Method that searches the device ID
@@ -174,12 +195,13 @@ public class Utils {
         layoutToast.setBackgroundResource(R.color.Toast_background_color_error);
         TextView textViewToast=new TextView(context);
         // set the TextView properties like color, size etc
+        textViewToast.setWidth(350);
         textViewToast.setTextColor(Color.parseColor("#a00037"));
         textViewToast.setTextSize(TEXT_SIZE);
         textViewToast.setGravity(Gravity.CENTER_VERTICAL);
         // set the text you want to show in  Toast
         textViewToast.setText(text);
-        textViewToast.setPadding(10,10,5,10);
+       // textViewToast.setPadding(10,10,5,10);
         ImageView imageError=new ImageView(context);
         // give the drawble resource for the ImageView
         imageError.setImageResource(R.drawable.error);
