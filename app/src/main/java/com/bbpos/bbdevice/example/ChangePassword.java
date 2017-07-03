@@ -84,7 +84,6 @@ public class ChangePassword extends Activity {
                 Utils.createToast(getApplicationContext(), messageForToast);
             }else
             {
-
                 progressDialogRing = new ProgressDialog(this);
                 progressDialogRing.setProgressStyle(ProgressDialog.STYLE_SPINNER);
                 progressDialogRing.setMessage("Procesando Transaccion");
@@ -153,8 +152,6 @@ public class ChangePassword extends Activity {
                 //Namespace of the Webservice - can be found in WSDL
                 NAMESPACE = "http://services.ws.acquiring.alodiga.com/";
                 //Webservice URL - WSDL File location
-                //  URL = "http://ec2-35-167-158-127.us-west-2.compute.amazonaws.com:8080/WsCoreService/WsCore";
-
                 URL = "http://192.168.3.144:8080/AcquiringWSServicesProviderService/AcquiringWSServicesProvider";
                 //SOAP Action URI again Namespace + Web method name
                 METHOD_NAME = "updateTerminalPassword";
@@ -179,7 +176,7 @@ public class ChangePassword extends Activity {
 
                 String[] var= responceReceived.split(",");
 
-                if(var[0].equals(ErrorMessages.TERMINAL_OLD_PASSWORD_NOT_FOUND))
+                if(var[0].equals(ErrorMessages.TERMINAL_OLD_PASSWORD_NOT_FOUND) || var[0].equals(ErrorMessages.TERMINAL_REPEATED_PASSWORD))
                 {
                     serviceStatus = false;
 
@@ -191,10 +188,8 @@ public class ChangePassword extends Activity {
                         if (isCancelled())
                             break;
                     }
-
                     serviceStatus = true;
                 }
-
 
             } catch (IllegalArgumentException e)
             {
@@ -241,7 +236,6 @@ public class ChangePassword extends Activity {
                 progressDialogRing.dismiss();
             }else
             {
-
                 Utils.createToast(context, R.string.invalid_password);
                 progressDialogRing.dismiss();
             }
@@ -254,9 +248,6 @@ public class ChangePassword extends Activity {
                     Toast.LENGTH_SHORT).show();
         }
     }
-
-
-
 
 }
 
