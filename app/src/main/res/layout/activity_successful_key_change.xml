@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.v7.internal.widget.TintImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/check"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="139dp"
+        android:id="@+id/tintImageView" />
+
+    <TextView
+        style="@style/TextViewStyleBold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="El cambio de contraseña se realizó"
+        android:layout_marginTop="17dp"
+        android:layout_below="@+id/tintImageView"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/TextView2" />
+
+    <TextView
+        style="@style/TextViewStyleBold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="de forma exitosa"
+        android:textAlignment="center"
+        android:layout_below="@+id/TextView2"
+        android:layout_centerHorizontal="true" />
+</RelativeLayout>
