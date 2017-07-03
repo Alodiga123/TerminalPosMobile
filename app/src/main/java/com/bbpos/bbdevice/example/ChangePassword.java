@@ -36,7 +36,9 @@ public class ChangePassword extends Activity {
     private int forwardIndicator;
     ProgressBar progressBar;
     ProgressDialog progressDialogRing;
-    EditText edtNewPassword ;
+    private EditText edtNewPassword ;
+    private EditText edtCurrentPassword;
+    private EditText edtConfirmPassword;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -68,8 +70,8 @@ public class ChangePassword extends Activity {
     public void evchangePassword(View view)
     {
         edtNewPassword  = (EditText) findViewById(R.id.editTextNewPassword);
-        final EditText edtCurrentPassword  = (EditText) findViewById(R.id.editTextCurrentPassword);
-        final EditText edtConfirmPassword  = (EditText) findViewById(R.id.editTextConfirmPassword);
+        edtCurrentPassword  = (EditText) findViewById(R.id.editTextCurrentPassword);
+        edtConfirmPassword  = (EditText) findViewById(R.id.editTextConfirmPassword);
         currentPassword = edtCurrentPassword.getText().toString();
         newPassword     = edtNewPassword.getText().toString();
         confirmPassword = edtConfirmPassword.getText().toString();
@@ -231,6 +233,9 @@ public class ChangePassword extends Activity {
         {
             if(result)
             {
+                edtNewPassword.getText().clear();
+                edtCurrentPassword.getText().clear();
+                edtConfirmPassword.getText().clear();
                 Intent i = new Intent(ChangePassword.this, SuccessfulKeyChange.class);
                 startActivity(i);
                 progressDialogRing.dismiss();
