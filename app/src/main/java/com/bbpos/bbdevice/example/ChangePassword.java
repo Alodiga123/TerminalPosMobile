@@ -44,7 +44,6 @@ public class ChangePassword extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_change_password);
         progressBar = (ProgressBar) findViewById(R.id.progressBarPassword);
-       // final EditText edTxtNewPassword = (EditText) findViewById(R.id.editTextNewPassword);
         edtNewPassword = (EditText) findViewById(R.id.editTextNewPassword);
 
         edtNewPassword.addTextChangedListener(new TextWatcher()
@@ -89,7 +88,6 @@ public class ChangePassword extends Activity {
                 progressDialogRing.setMessage("Procesando Transaccion");
                 progressDialogRing.setCancelable(false);
                 progressDialogRing.setMax(100);
-
                 try
                 {
                     String androidIDV = Utils.getAndroidId(getApplicationContext());
@@ -173,7 +171,6 @@ public class ChangePassword extends Activity {
 
                 SoapObject requestReceived = Utils.buildRequest(encrypterParam, NAMESPACE, METHOD_NAME);
                 responceReceived = Utils.processPetition(requestReceived, URL, key);
-
                 String[] var= responceReceived.split(",");
 
                 if(var[0].equals(ErrorMessages.TERMINAL_OLD_PASSWORD_NOT_FOUND) || var[0].equals(ErrorMessages.TERMINAL_REPEATED_PASSWORD))
@@ -182,7 +179,8 @@ public class ChangePassword extends Activity {
 
                 }else if(var[0].equals(ErrorMessages.SUCCESSFUL_OPERATION))
                 {
-                    for (int i = 1; i <= 2; i++) {
+                    for (int i = 1; i <= 2; i++)
+                    {
                         durationProgressDialog();
                         publishProgress(i * 10);
                         if (isCancelled())
@@ -233,6 +231,8 @@ public class ChangePassword extends Activity {
         {
             if(result)
             {
+                Intent i = new Intent(ChangePassword.this, SuccessfulKeyChange.class);
+                startActivity(i);
                 progressDialogRing.dismiss();
             }else
             {
