@@ -147,28 +147,10 @@ public class Utils {
         {
            androidHttpTransport.call(soapAction, envelope);
         }
-             // SoapPrimitive resultsRequestSOAP = (SoapPrimitive) envelope.getResponse();
         Object resultsRequestSOAP = (Object) envelope.getResponse();
         value = resultsRequestSOAP.toString();
-
-        /*TODO- Kerwin aqui hay un detalle, cuando la info que llega al "value" no esta encryptada
-        * al llegar a este metodo "S3cur1ty3Cryt3r.aloDesencrypter(value,key,null)" se pierde la informacion;
-        * intente picar el STRING y evaluar su primera posicion pero no quiere hacerlo, cualquier detalle me comentas
-        */
-        String[] var= value.split(",");
-
-        if(var[0].equals(ErrorMessages.TERMINAL_OLD_PASSWORD_NOT_FOUND))
-        {
-            return value;
-        }else if(var[0].equals(ErrorMessages.TERMINAL_REPEATED_PASSWORD))
-        {
-            return value;
-        }else
-        {
-            response = S3cur1ty3Cryt3r.aloDesencrypter(value,key,null);
-            return response;
-
-        }
+        response = S3cur1ty3Cryt3r.aloDesencrypter(value,key,null);
+        return response;
      }
 
     /**
