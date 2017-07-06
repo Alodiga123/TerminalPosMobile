@@ -16,11 +16,13 @@ import org.ksoap2.serialization.PropertyInfo;
 import org.ksoap2.serialization.SoapObject;
 import org.ksoap2.serialization.SoapSerializationEnvelope;
 import org.ksoap2.transport.HttpTransportSE;
+
 import java.security.MessageDigest;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class Utils {
+public
+class Utils {
     /**
      * CAPITAL_LETTER: Constant used to detect the existence of a capital letter in a text string
      */
@@ -45,6 +47,10 @@ public class Utils {
      * TEXT_SIZE: Constant used to indicate letter size
      */
     private static final int TEXT_SIZE = 15;
+
+    private static final String INDICATRO_TO_DISABLE = "10";
+
+    private static final int CANTIDAD_PARAMETROS_DE_ENTRADA = 2;
 
 
     protected static String encodeNdefFormat(String hexString) {
@@ -302,5 +308,38 @@ public class Utils {
             return 0;
         }
     }
+
+
+
+ public static String disableTerminal(String androidID, String key ) throws Exception {
+     String responceReceived;
+
+        //Namespace of the Webservice - can be found in WSDL
+        String  NAMESPACE = "http://services.ws.acquiring.alodiga.com/";
+        //Webservice URL - WSDL File location
+        String URL = "http://192.168.3.144:8080/AcquiringWSServicesProviderService/AcquiringWSServicesProvider";
+        //SOAP Action URI again Namespace + Web method name
+        String METHOD_NAME = "disableTerminal";
+        final String androidIdEncrypted = Utils.sha256(androidID);
+        final String parametroDeBloqueo = S3cur1ty3Cryt3r.aloEncrypter(INDICATRO_TO_DISABLE,key,null);
+        EncryptedParameter encrypterParam[] = new EncryptedParameter[CANTIDAD_PARAMETROS_DE_ENTRADA];
+        EncryptedParameter encrypterParamObject = new EncryptedParameter();
+        EncryptedParameter encrypterParamObjectAndroid = new EncryptedParameter();
+
+        encrypterParamObject.name = "encryptedStatusIndicator";
+        encrypterParamObject.encryptedString = parametroDeBloqueo;
+        encrypterParamObject.type = PropertyInfo.STRING_CLASS;
+        encrypterParam[0] = encrypterParamObject;
+
+        encrypterParamObjectAndroid.name = "androidId";
+        encrypterParamObjectAndroid.encryptedString = androidIdEncrypted;
+        encrypterParamObjectAndroid.type = PropertyInfo.STRING_CLASS;
+        encrypterParam[1] = encrypterParamObjectAndroid;
+
+       SoapObject requestReceived = Utils.buildRequest(encrypterParam, NAMESPACE, METHOD_NAME);
+       responceReceived = Utils.processPetition(requestReceived, URL, key);
+
+     return responceReceived;
+ }
 
 }
